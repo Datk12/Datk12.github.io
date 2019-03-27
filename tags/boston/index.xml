@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Boston on Dom&#39;s Data Blog</title>
+    <link>http://datk12.github.io/tags/boston/</link>
+    <description>Recent content in Boston on Dom&#39;s Data Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 14 Mar 2019 11:36:32 +0000</lastBuildDate>
+    
+	<atom:link href="http://datk12.github.io/tags/boston/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear Regression - Boston Houseprice Data</title>
+      <link>http://datk12.github.io/post/linear-regression/</link>
+      <pubDate>Thu, 14 Mar 2019 11:36:32 +0000</pubDate>
+      
+      <guid>http://datk12.github.io/post/linear-regression/</guid>
+      <description>Today, I will be looking at a Linear Regression Analysis using the Boston House Price dataset from the Sci-Kit Learn Library. Linear Regression allows the examination of the relationship between inputs and a continuous output. In this case, the output refers to the value of the house price. We will be exploring the data to see whether or not we can learn anything about the relationships between the variables, inference, and whether we can build a model that can predict house prices based on some of the inputs.</description>
+    </item>
+    
+  </channel>
+</rss>

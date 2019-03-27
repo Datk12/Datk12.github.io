@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://datk12.github.io/post/linear-regression/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/post/classification-wisconsin-breast-cancer-data/</loc>
+    <lastmod>2019-03-14T11:37:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/tags/boston/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/categories/data-science/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/tags/linear-regression/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/post/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://datk12.github.io/tags/</loc>
+    <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

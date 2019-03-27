@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Dom&#39;s Data Blog</title>
+    <link>http://datk12.github.io/post/</link>
+    <description>Recent content in Posts on Dom&#39;s Data Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 14 Mar 2019 11:36:32 +0000</lastBuildDate>
+    
+	<atom:link href="http://datk12.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linear Regression - Boston Houseprice Data</title>
+      <link>http://datk12.github.io/post/linear-regression/</link>
+      <pubDate>Thu, 14 Mar 2019 11:36:32 +0000</pubDate>
+      
+      <guid>http://datk12.github.io/post/linear-regression/</guid>
+      <description>Today, I will be looking at a Linear Regression Analysis using the Boston House Price dataset from the Sci-Kit Learn Library. Linear Regression allows the examination of the relationship between inputs and a continuous output. In this case, the output refers to the value of the house price. We will be exploring the data to see whether or not we can learn anything about the relationships between the variables, inference, and whether we can build a model that can predict house prices based on some of the inputs.</description>
+    </item>
+    
+    <item>
+      <title>Classification - Wisconsin Breast Cancer Data</title>
+      <link>http://datk12.github.io/post/classification-wisconsin-breast-cancer-data/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>http://datk12.github.io/post/classification-wisconsin-breast-cancer-data/</guid>
+      <description>Today I will be looking at the Wisconsin Breast Cancer Data Set a pre-processed, clean data set on SKLearn. The purpose of this is to classify whether the tumour is ‘benign’ or ‘malignant’ and I will be comparing and contrasting a number of different techniques as a means of understanding the data.
+A brief exploration of the data:
+As mentioned in the description, this is a data set of 30 numerical values.</description>
+    </item>
+    
+  </channel>
+</rss>

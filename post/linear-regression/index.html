@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "http://datk12.github.io"
+        },
+        "articleSection" : "post",
+        "name" : "Linear Regression - Boston Houseprice Data",
+        "headline" : "Linear Regression - Boston Houseprice Data",
+        "description" : "Today, I will be looking at a Linear Regression Analysis using the Boston House Price dataset from the Sci-Kit Learn Library. Linear Regression allows the examination of the relationship between inputs and a continuous output. In this case, the output refers to the value of the house price. We will be exploring the data to see whether or not we can learn anything about the relationships between the variables, inference, and whether we can build a model that can predict house prices based on some of the inputs.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-03-14 11:36:32 &#43;0000 UTC",
+        "dateModified" : "2019-03-14 11:36:32 &#43;0000 UTC",
+        "url" : "http://datk12.github.io/post/linear-regression/",
+        "wordCount" : "1118",
+        "image" : http://datk12.github.ioimg/portfolio/old-state-house-museum.jpg",
+        "keywords" : [ "Linear Regression","Boston","Blog" ]   
+    }
+    </script>
+
+
+ <title>Linear Regression - Boston Houseprice Data </title>
+
+
+<meta name="description" content="" />
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link href="http://datk12.github.io/css/style.css?v=1553674130" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="http://datk12.github.io/css/custom.css?v=1553674130" rel="stylesheet" type='text/css' media='all'>
+<link rel="shortcut icon" href="http://datk12.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="http://datk12.github.io/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+
+    <div class="menu">
+
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/data-science">data-science</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <ul class="social-media-icons">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+  </ul></div>
+
+      </div>
+
+      <div class="container">
+        <div id="title-info" class="title-info">
+  <div id='site-title' class='site-title'>
+    
+    <a href="/"> Dom&#39;s Data Blog </a>
+    </div>
+  </div>
+  <button id="toggle-navigation" class="toggle-navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+  <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+
+    <div class="menu">
+      <ul id="menu-primary-items" class="menu-primary-items">
+        
+        
+        <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+          <a href="http://datk12.github.io/">Home</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="http://datk12.github.io/about/">About</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="http://datk12.github.io/contact/">Get in touch</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      
+  
+  
+    map[]
+  
+  
+  <div id="loop-container" class="loop-container">
+    
+    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+
+      <div class='featured-image lazy lazy-bg-image'  data-background="http://datk12.github.io/img/portfolio/old-state-house-museum.jpg">
+      </div>
+      
+        <div class="entry-meta">
+          <span class="date">14 March</span>	<span> / </span>
+
+          <span class="author">
+            <a href="http://datk12.github.io" title="Posts by Dom Atkinson" rel="author">Dom Atkinson</a>
+          </span>
+
+
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/data-science">Data Science</a>
+          </span>
+          
+
+
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> Linear Regression - Boston Houseprice Data</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Today, I will be looking at a Linear Regression Analysis using the Boston House Price dataset from the Sci-Kit Learn Library. Linear Regression allows the examination of the relationship between inputs and a continuous output. In this case, the output refers to the value of the house price. We will be exploring the data to see whether or not we can learn anything about the relationships between the variables, inference, and whether we can build a model that can predict house prices based on some of the inputs.</p>
+
+<p>First, we import the relevant libraries.</p>
+
+<p><img src="/img/bos_pics/bos_imports.png" alt="bos import" /></p>
+
+<p>As the data is part of the Sci-Kit Learn library, it requires very little manipulation to load it and begin using it.</p>
+
+<p><img src="/img/bos_pics/bos_1.png" alt="bos 1" /></p>
+
+<p>Before any statistical methods can be run, we need to get an understanding of how the data is presented. So, after loading the dataset, I check its type.</p>
+
+<p><img src="/img/bos_pics/bos_2.png" alt="bos 2" /></p>
+
+<p>It is a Bunch, which is a dictionary that allows attribute-style access. It has four keys: data, target, feature_names and DESCR. Calling these methods reveals the structure of the data that we’re interested in.</p>
+
+<p><img src="/img/bos_pics/bos_3.png" alt="bos 3" /></p>
+
+<p>The data key contains the inputs and is a numpy array of 506 rows long and 13 columns wide. We will explore these in a bit more detail soon, in the hope that we can identify some reliable predictors.</p>
+
+<p><img src="/img/bos_pics/bos_4.png" alt="bos 4" /></p>
+
+<p>The target key contains the actual house prices, this is the output and the variable we will be trying to predict based on the inputs.</p>
+
+<p><img src="/img/bos_pics/bos_target_info.png" alt="bos target info" /></p>
+
+<p>Quickly calling .info() on the target reveals that it is a column of numerical values. This suggests that it is indeed a regression problem we are dealing with. While calling .head() and looking at the description reveals that the target represents the median value of owner-occupied homes in $1000&rsquo;s for different suburbs of Boston. Understanding how the data is presented will better allow us to understand our performance meausre, the root-mean-squared-error. More on this later!</p>
+
+<p><img src="/img/bos_pics/bos_target_head.png" alt="bos target head" /></p>
+
+<p>This plot shows the distribution of house prices. Apart from a few outliers at the top end, it resembles a normal distribution. We can suspect the outliers refer to a cut-off point at 50,000 + etc.</p>
+
+<p><img src="/img/bos_pics/bos_dist.png" alt="bos dist" /></p>
+
+<p>The feature names key contains an array of 13 strings, these appear to be the column names of the inputs. Calling the DESCR key confirms this and elaborates on what each column represents (though a more comprehensible presentation of the description can be found here : <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.names">https://archive.ics.uci.edu/ml/machine-learning-databases/housing/housing.names</a>).</p>
+
+<p><img src="/img/bos_pics/bos_5.png" alt="bos 5" /></p>
+
+<p>Now that we understand what we are looking at, it is time to pass this into a Pandas DataFrame to more easily allow for manipulation of the data.</p>
+
+<p><img src="/img/bos_pics/bos_6.png" alt="bos 6" /></p>
+
+<p>Although it is clear from the description that there are no null or none values, it is good practice to check if any of the data are missing.</p>
+
+<p><img src="/img/bos_pics/bos_no_null.png" alt="bos no_null" /></p>
+
+<p>The .info() is another useful method when looking at data, in particular with reference to data types.</p>
+
+<p><img src="/img/bos_pics/bos_info.png" alt="bos info" /></p>
+
+<p>The describe method for Pandas produces a tranche of descriptive statistics about the data frame in question.</p>
+
+<p><img src="/img/bos_pics/bos_describe.png" alt="bos describe" /></p>
+
+<p>Before conducting a regression analysis, we want to establish whether or not the data provide evidence of an association between an input or inputs and house price. If there is, we want to establish the strength of the relationship. Perhaps more importantly, though in this case we know the answer, we want to establish whether or not this relationship is linear.</p>
+
+<p>Linear Regression is a fairly inflexible model. It makes the assumption that there is a linear relationship between X and Y. If this condition is satisfied, there should relatively small variance in prediction if the model is trained on different data. This is as the model carries with it a fair amount of bias (or error introduced by approximating real-life problems with simple-models), which is minimised the more the data reflects the pre-conditions for a Linear Regression. Although there is no magic bullet in model selection, ideally the correct model should minimise both the variance and the bias (for those interested, this is known as the variance-bias trade-off). By establishing that there is a linear relationship between X and Y, we can rely more confidently on the validity of our predictions.</p>
+
+<p>This heatmap displays the correlation between the variables. As we would like to select those features with a high correlation to the target, this is helpful.</p>
+
+<p><img src="/img/bos_pics/bos_corr_heatmap_1.png" alt="bos corr 1" /></p>
+
+<p>Two variables stick out as being highly correlated to the target, RM has a strong positive correlation (0.7) to the target and LSTAT has a strong negative correlation (-0.74) to the target. We can visualise this with a scatterplot as follows.</p>
+
+<p><img src="/img/bos_pics/bos_feat_scat.png" alt="bos feat scatt" /></p>
+
+<p>LSTAT referes to the % of the population defined as lower status.</p>
+
+<p>RM refers to the average number of rooms in a dwelling, perhaps it is not surprising that this is positively correlated with the median house price.</p>
+
+<p>All of this indicates that a linear model is the correct one to purse. This dataset was selected in the knowledge that a linear model would be a good fit, but ‘in the wild’ so to speak, this would be a good indication as to the type of model we would want to fit. It also introduces the idea of the variance-bias tradeoff.!!!</p>
+
+<p>Next, we can begin preparing the data for our model. We split the data, using sklearns train_test_split() method, into training and test sets. The random_state parameter ensures that the same random sample is used each time we call the method. We can also confirm the size of the sets by calling .shape().</p>
+
+<p><img src="/img/bos_pics/bos_split.png" alt="bos split" /></p>
+
+<p>With sklearn, it is as easy as instantiating the model and calling .fit() on the training sets and calling .predict() on the X_train set. We will then compare the difference between the actual value and the predicted value.</p>
+
+<p><img src="/img/bos_pics/bos_fit.png" alt="bos fit" /></p>
+
+<p>Here are the results. In order to evaluate the accuracy of the predictions, SKLearn provides the mean-squared-error or MSE. The MSE can be thought of as the average squared difference between predicted values and actual values, thus the lower it is, the better the model has performed at prediction. By taking the square root of the MSE, we produce the RMSE, which is measured in the same unit as the quantity being investigated.</p>
+
+<p><img src="/img/bos_pics/bos_rmse.png" alt="bos rmse" /></p>
+
+<p>So, what does an RMSE of 5.6 mean? As the RMSE measures the standard deviation of errors the model makes, it means that 68% of the model’s predictions fall within $5.6 thousand dollars of the actual mean house price, and about 95% fall within $11.2 thousand of the actual value.</p>
+
+<p>Whether or not this is an acceptable result, depends entirely upon the nature of the purpose of running a regression analysis in the first place. When we consider the mean house price data is $22.5 thousand (the data is from the 80&rsquo;s after all), then $5.6 thousand accounts for about a quarter of that value.</p>
+
+            </article>
+          </div>
+          
+      <div class='entry-meta-bottom'>
+        
+
+  <div class="entry-categories"><p><span>Categories</span>
+    
+    <a href="/categories/data-science" title="View all posts in Data Science">Data Science</a>
+  </p>
+</div>
+
+
+
+<div class="entry-tags"><p><span>Tags</span>
+  
+  <a href="/tags/linear-regression" title="View all posts tagged Linear Regression">Linear Regression</a>
+  
+  <a href="/tags/boston" title="View all posts tagged Boston">Boston</a>
+  
+
+</p></div>	</div>
+
+	
+</div>
+</div>
+
+<section id="comments" class="comments">
+  
+
+  
+
+
+
+
+</section>
+</div>
+
+ 
+
+
+
+    </div>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+    
+    <a href=""> Dom&#39;s Data Blog </a>
+    
+	</h1>
+
+			
+
+		<div id="menu-footer" class="menu-container menu-footer" role="navigation">
+		<div class="menu">
+
+      <ul id="menu-footer-items" class="menu-footer-items">
+        
+</ul>
+
+</div>	</div>
+
+<ul class="social-media-icons">
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        
+
+				</ul>	<div class="design-credit">
+		
+		<p>
+			Nederburg Hugo Theme by <a target="_blank" href="https://appernetic.io">Appernetic</a>.
+		</p>
+		<p>
+			A port of Tracks by Compete Themes.
+		</p>
+		
+	</div>
+</footer>
+
+  </div>
+  <script src="http://datk12.github.io/js/jquery.min.js"></script>
+<script src="http://datk12.github.io/js/jquerymigrate.js"></script>
+<script src="http://datk12.github.io/js/production.min.js?v=1553674130"></script>
+
+</body>
+</html>
