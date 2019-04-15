@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https://datk12.github.io"
+        },
+        "articleSection" : "post",
+        "name" : "Trump Twitter Analysis - Part 1",
+        "headline" : "Trump Twitter Analysis - Part 1",
+        "description" : "Upon learning about Trump twitter archive, I immediately recognised the opportunity to subject the President’s tweets to some analysis. Without doubt President Trump, before many other politicians, understood the power of Twitter as a means of disseminating his message. His message has many characteristic features. Perhaps this is not surprising given the President&rsquo;s former career as a reality television star. One phrase from the election campaign that stood out to me, an uninformed observer from outside the US, was &lsquo;Crooked Hillary&rsquo;.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-04-11 06:30:00 &#43;0000 UTC",
+        "dateModified" : "2019-04-11 06:30:00 &#43;0000 UTC",
+        "url" : "https://datk12.github.io/post/trump-part-1/",
+        "wordCount" : "1657",
+        "image" : https://datk12.github.ioimg/portfolio/smug_trump.jpg",
+        "keywords" : [ "NLP","Scrapy","Twitter","Trump","Blog" ]   
+    }
+    </script>
+
+
+ <title>Trump Twitter Analysis - Part 1 </title>
+
+
+<meta name="description" content="" />
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link href="https://datk12.github.io/css/style.css?v=1555323701" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="https://datk12.github.io/css/custom.css?v=1555323701" rel="stylesheet" type='text/css' media='all'>
+<link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+
+    <div class="menu">
+
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/linear-regression">linear-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/logistic-regression">logistic-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/nlp">nlp</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/random-forest-regressor">random-forest-regressor</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/scrapy">scrapy</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/spacy">spacy</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <ul class="social-media-icons">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+  </ul></div>
+
+      </div>
+
+      <div class="container">
+        <div id="title-info" class="title-info">
+  <div id='site-title' class='site-title'>
+    
+    <a href="/"> Dom Atkinson </a>
+    </div>
+  </div>
+  <button id="toggle-navigation" class="toggle-navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+  <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+
+    <div class="menu">
+      <ul id="menu-primary-items" class="menu-primary-items">
+        
+        
+        <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+          <a href="https://datk12.github.io/">Home</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="https://datk12.github.io/about/">About</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      
+  
+  
+    
+  
+  
+  <div id="loop-container" class="loop-container">
+    
+    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+
+      <div class='featured-image lazy lazy-bg-image'  data-background="https://datk12.github.io/img/portfolio/smug_trump.jpg">
+      </div>
+      
+        <div class="entry-meta">
+          <span class="date">11 April</span>	<span> / </span>
+
+          <span class="author">
+            <a href="https://datk12.github.io" title="Posts by Dom Atkinson" rel="author">Dom Atkinson</a>
+          </span>
+
+
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/nlp">NLP</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/scrapy">Scrapy</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/spacy">Spacy</a>
+          </span>
+          
+
+
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> Trump Twitter Analysis - Part 1</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Upon learning about <a href="http://www.trumptwitterarchive.com/">Trump twitter archive</a>, I immediately recognised the opportunity to subject the President’s tweets to some analysis. Without doubt President Trump, before many other politicians, understood the power of Twitter as a means of disseminating his message. His message has many characteristic features. Perhaps this is not surprising given the President&rsquo;s former career as a reality television star. One phrase from the election campaign that stood out to me, an uninformed observer from outside the US, was &lsquo;Crooked Hillary&rsquo;. It seemed to me characteristic of many short, emotive phrases that the President has become famous for.</p>
+
+<p>This brevity and distinctness seems to lend itself to Twitter&rsquo;s hashtag system. There are also lots of other data collected on the archive, that can be used in conjunction with the inclusion of hashtags. Of course, inferring all the complexities of the President’s communication style from hashtags would be a foolish oversimplification. That said, I believe there may be some interesting insight that could be gleaned from the data. The first step then, would be to identify the most common hashtags and explore the data.</p>
+
+<p><img src="/img/trump/trump_first.png" alt="trump first" /></p>
+
+<p>A quick search shows that the site archives the President’s tweets by year in JSON format, ranging all the way back to his first tweet on May 4th, 2009 up to the present day. With the help of Scrapy it is relatively easy to acquire and process for the purpose of analysis.</p>
+
+<p>In the interest of orderliness, I decided to use the period from 2009-2018. This accounts for 36307 tweets. Prior to 27/01/2017, the site did not update the twitter feed in real time, thus approximately 4000 tweets are missing, after they were deleted by the President.</p>
+
+<p><img src="/img/trump/trump_second.png" alt="trump second" /></p>
+
+<p>JSON files convert into a dictionary in Python, which is then converted into a Pandas data frame. I passed the annual archive of the tweets into an empty list and then concatenated them all into a single Pandas data frame. In the interest of understanding, I also created a hashtag column, with a binary classification, to get a feel for the number of tweets that contain a hashtag. I graphed this by year as a quick insight into Trump’s hashtag behaviour.</p>
+
+<p><img src="/img/trump/trump_09.png" alt="trump 09" />
+<img src="/img/trump/trump_10.png" alt="trump 10" />
+<img src="/img/trump/trump_11.png" alt="trump 11" />
+<img src="/img/trump/trump_12.png" alt="trump 12" />
+<img src="/img/trump/trump_13.png" alt="trump 13" />
+<img src="/img/trump/trump_14.png" alt="trump 14" />
+<img src="/img/trump/trump_15.png" alt="trump 15" />
+<img src="/img/trump/trump_16.png" alt="trump 16" />
+<img src="/img/trump/trump_17.png" alt="trump 17" />
+<img src="/img/trump/trump_18.png" alt="trump 18" /></p>
+
+<p>This is a far from perfect method, but it does provide some insight. Judged solely on these charts, the President seems to have increased the proportion of hashtags per tweet in 2015 and 2016. These years correspond to his election campaign. It could be that Trump found hashtags to be a particularly useful means of communication on Twitter. So, with the data consolidated, let’s take a look at what we can do with it.</p>
+
+<p>As mentioned above, the method by which I created a hashtag column left too much room for error. It was unable to identify what hashtags were used, whether the # referred to something else nor whether there were multiple hashtags in a tweet.</p>
+
+<p>Luckily, spaCy, a library for Natural Language Processing in Python, is able to do this. I added the pattern of a hashtag (#, followed by text) to the Matcher class, then used the Counter to make note of the number of hashtags that arose in the tweets.</p>
+
+<p><img src="/img/trump/trump_spacy.png" alt="trump spacy" /></p>
+
+<p>To ensure that I was on the right path, I took note of the top 10. Interestingly, the majority of these are hashtags that refer to the election campaign, or arose during that time.</p>
+
+<p><img src="/img/trump/trump_most_hash.png" alt="trump most hash" /></p>
+
+<p>Next came the task of processing this data for use in analysis. I decided to use a method called ‘one hot encoding’. Much like I used earlier with my hashtag column, one hot encoding creates a binary classification for a categorical variable. For example, if a tweet contains ‘#trump2016’, it is recorded with 1, or else if it does not it contain ‘#trump2016’ it contains 0.</p>
+
+<p><img src="/img/trump/trump_one_hot.png" alt="trump one hot" /></p>
+
+<p>In the interest of brevity, I decided to only add Trump’s 100 most common hashtags. This was done by looping through every tweet and creating a dictionary a dictionary for every row. Within this loop I would then loop through all of the 100 most common hashtags and use the hashtag as a key and 1 or 0 as a value depending on whether the tweet included the hashtag in question. I then appended the dictionary to an empty list and converted it into a Pandas data frame. Finally, I concatenated these new entries into the original data frame.</p>
+
+<p><img src="/img/trump/trump_headers.png" alt="trump headers" /></p>
+
+<p>A quick check to have a look at the new headers.</p>
+
+<p>Now let’s have some fun. Twitter has two functions that can be though of as, to an extent at least, numerically reflecting popularity. These are the retweet and favourite functions. As someone who doesn&rsquo;t use Twitter I was unsure which better reflected popularity. Luckily, some smart people at Wellesly College have already written a paper about this, suggesting that retweets indicate agreement, endorsement and trust, so I decided to follow their lead.</p>
+
+<p><a href="http://cs.wellesley.edu/~pmetaxas/WorkingPapers/Retweet-meaning.pdf">You can find the paper here</a>.</p>
+
+<p>Plotting the distribution of the retweet count of the President’s tweets, unsurprisingly, shows a positive skew with a long tail on the right. This tells us nothing more than that the vast majority of the President’s tweets have received fewer than 1000 retweets. But it also suggests that there are some tweets that are several orders of magnitude more popular than the mean.</p>
+
+<p><img src="/img/trump/trump_retweet_dist.png" alt="trump retweet dist" /></p>
+
+<p>This is confirmed by the descriptive statistics of the retweet count.</p>
+
+<p><img src="/img/trump/trump_descriptive.png" alt="trump descriptive" /></p>
+
+<p>This got me to thinking whether or not there are particular hashtags that are associated with these far more popular tweets. If there are, what is the lifecycle of such a hashtag? Are they messages the President can lean upon for a show of support when he deems fits? Or do they in reference to something more specific to the new cycle?</p>
+
+<p>One way of identifying the tweets that are most popular with the President’s twitter followers, would be to identify those with the highest ‘retweet ratio’. That is, those hashtags that garner the highest number of retweets relative to their use. Next, of those tweets with the highest retweet ratio one could look at the frequency of their use over time and investigate their lifecycle. If the President had some ‘go-to’ hashtags, it is conceivable their use and popularity would endure over time.</p>
+
+<p><img src="/img/trump/trump_retweet_ratio.png" alt="trump retweet ratio" /></p>
+
+<p>Obtaining the retweet ratio was as simple as summing the retweets for a particular hashtag and dividing the total by the number of tweets that include a hashtag. I then graphed these in descending order on a bar chart. As this is an exploration, I decided to work with only the top 10.</p>
+
+<p><img src="/img/trump/trump_ratio_bar.png" alt="trump ratio bar" /></p>
+
+<p>Here is the a list of the top ten, with the corresponding retweet ratio.</p>
+
+<p><img src="/img/trump/trump_top_10_ratio.png" alt="trump top 10 ratio" /></p>
+
+<p>Unsurprisingly, given the President’s enmity towards the media, #FakeNews tops the bill. A glance at the hashtag’s descriptive statistics with regards retweet count show it to be an outlier, with a mean of 19279 retweets and a standard deviation of 8971, compared to the sample mean of 4397 and a standard deviation of 9443.</p>
+
+<p><img src="/img/trump/trump_fake_describe.png" alt="trump fake describe" /></p>
+
+<p>The shape of it’s distribution is also quite different to that a of the sample.</p>
+
+<p><img src="/img/trump/trump_fake_dist.png" alt="trump fake dist" /></p>
+
+<p>Most striking, to me at least, was the number of entries. Only 19. To get a better idea of this hashtags lifecycle I graphed a cumulative sum of the rolling 7 day mean of the hashtags retweet count over the period of time from its first use to its last. This suggests a relatively enduring popularity since its inception. This period roughly represents the period from the beginning of Donald Trump’s Presidency until the end of the period.</p>
+
+<p><img src="/img/trump/trump_fake_time.png" alt="trump fake time" />
+<img src="/img/trump/trump_jobs_time.png" alt="trump jobs time" />
+<img src="/img/trump/trump_hurricane_time.png" alt="trump hurricane time" />
+<img src="/img/trump/trump_drain_time.png" alt="trump drain time" />
+<img src="/img/trump/trump_maga_time.png" alt="trump maga time" />
+<img src="/img/trump/trump_crooked_time.png" alt="trump crooked time" />
+<img src="/img/trump/trump_magarally_time.png" alt="trump magarally time" />
+<img src="/img/trump/trump_debatnight_time.png" alt="trump debatenight time" />
+<img src="/img/trump/trump_lesm_time.png" alt="trump lesm time" />
+<img src="/img/trump/trump_debate_time.png" alt="trump debate time" /></p>
+
+<p>Looking at the other of the hashtags with the highest retweet ratios it became apparent that they roughly fit into two categories. Those like #FakeNews that spanned multiple years and other much shorter term hashtags, that typically relate to an event in the news cycle.</p>
+
+<p>Of the longer-term hashtags, this included: #FakeNews, #DrainTheSwamp, #MAGA (only this variation), #LESM, #CrookedHillary.</p>
+
+<p>While the shorter-term hashtags, the period of their use ranging from a day to two weeks, included: #JobsNotMobs, #HurricaneHarvey, #MAGARally, #DebateNight.</p>
+
+<p>The outlier was #debate, which has had irregular use and popularity. It also pre-dates Trump’s Presidency.</p>
+
+<p>Of the longer-term hashtags #FakeNews, #DrainTheSwamp, #LESM (Law Enforcement Social Media) and #MAGA all date from just before Trump’s Presidency or during the election campaign and appear to run on to the end of the period in question. As an uniformed observer of US politics, they also seem to thematically reflect the core of the President&rsquo;s message. So, perhaps it is unsurprising that they rank amongst his most popular hashtags.</p>
+
+<p>#CrookedHillary, on the other hand, was used for just over a year, from during the election campaign, and appears to now be defunct. It might be felt that with Mrs. Clinton&rsquo;s defeat in the Presidential election campaign of 2016 and her announcement that she will not run for President in 2020, that she no longer warrants the attention she hitherto received from the President.</p>
+
+<p>This all suggests that the core of the President’s message has remained the same from the election up until now.</p>
+
+<p>In terms of the methodology used, here are some thoughts for future investigations. Of the tweets that number amongst those with the highest retweet ratio, most date from Trump’s Presidency or his campaign. In the case of further investigation, it might be wise to separate tweets by period: pre-politics, Presidential nominee/President elect and Presidency. This might reveal some interesting insights into how Trump’s message has changed.</p>
+
+<p>A weakness of the methodology was the it’s inability to differentiate between variation of the same hashtag. In the case of the 100 most frequent hashtags, there 3 variation of #MAGA (#MAGA, #MAKEAMERICAGREATAGAIN, #MakeAmericaGreatAgain). With a little tweaking, I’m sure this problem could be solved, and the variations aggregated.</p>
+
+<p>For future investigation, it might be interesting to run some regression models and see if we can predict the popularity of a tweet based on the inclusion of certain hastags.</p>
+
+<p>However, this seems like a good place to pause the analysis for now. Thank you for reading!</p>
+
+            </article>
+          </div>
+          
+      <div class='entry-meta-bottom'>
+        
+
+  <div class="entry-categories"><p><span>Categories</span>
+    
+    <a href="/categories/nlp" title="View all posts in NLP">NLP</a>
+    <a href="/categories/scrapy" title="View all posts in Scrapy">Scrapy</a>
+    <a href="/categories/spacy" title="View all posts in Spacy">Spacy</a>
+  </p>
+</div>
+
+
+
+<div class="entry-tags"><p><span>Tags</span>
+  
+  <a href="/tags/nlp" title="View all posts tagged NLP">NLP</a>
+  
+  <a href="/tags/scrapy" title="View all posts tagged Scrapy">Scrapy</a>
+  
+  <a href="/tags/twitter" title="View all posts tagged Twitter">Twitter</a>
+  
+  <a href="/tags/trump" title="View all posts tagged Trump">Trump</a>
+  
+
+</p></div>	</div>
+
+	
+</div>
+</div>
+
+<section id="comments" class="comments">
+  
+
+  
+
+
+
+
+</section>
+</div>
+
+ 
+
+
+
+    </div>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+    
+    <a href=""> Dom Atkinson </a>
+    
+	</h1>
+
+			
+
+		<div id="menu-footer" class="menu-container menu-footer" role="navigation">
+		<div class="menu">
+
+      <ul id="menu-footer-items" class="menu-footer-items">
+        
+</ul>
+
+</div>	</div>
+
+<ul class="social-media-icons">
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        
+
+				</ul>	<div class="design-credit">
+		
+		<p>
+			Nederburg Hugo Theme by <a target="_blank" href="https://appernetic.io">Appernetic</a>.
+		</p>
+		<p>
+			A port of Tracks by Compete Themes.
+		</p>
+		
+	</div>
+</footer>
+
+  </div>
+  <script src="https://datk12.github.io/js/jquery.min.js"></script>
+<script src="https://datk12.github.io/js/jquerymigrate.js"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1555323701"></script>
+
+</body>
+</html>

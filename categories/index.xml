@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Dom&#39;s Data Blog</title>
-    <link>http://datk12.github.io/categories/</link>
-    <description>Recent content in Categories on Dom&#39;s Data Blog</description>
+    <title>Categories on Dom Atkinson</title>
+    <link>https://datk12.github.io/categories/</link>
+    <description>Recent content in Categories on Dom Atkinson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     
-	<atom:link href="http://datk12.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://datk12.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Data Science</title>
-      <link>http://datk12.github.io/categories/data-science/</link>
+      <title>Linear Regression</title>
+      <link>https://datk12.github.io/categories/linear-regression/</link>
       <pubDate>Thu, 14 Mar 2019 11:36:32 +0000</pubDate>
       
-      <guid>http://datk12.github.io/categories/data-science/</guid>
+      <guid>https://datk12.github.io/categories/linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://datk12.github.io/categories/logistic-regression/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nlp</title>
+      <link>https://datk12.github.io/categories/nlp/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forest Regressor</title>
+      <link>https://datk12.github.io/categories/random-forest-regressor/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/random-forest-regressor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scrapy</title>
+      <link>https://datk12.github.io/categories/scrapy/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/scrapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spacy</title>
+      <link>https://datk12.github.io/categories/spacy/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/spacy/</guid>
       <description></description>
     </item>
     

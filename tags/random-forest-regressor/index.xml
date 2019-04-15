@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random Forest Regressor on Dom Atkinson</title>
+    <link>https://datk12.github.io/tags/random-forest-regressor/</link>
+    <description>Recent content in Random Forest Regressor on Dom Atkinson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 14 Mar 2019 11:37:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://datk12.github.io/tags/random-forest-regressor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Classification - Wisconsin Breast Cancer Data</title>
+      <link>https://datk12.github.io/post/classification-wisconsin-breast-cancer-data/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/post/classification-wisconsin-breast-cancer-data/</guid>
+      <description>Today I will be looking at the Wisconsin Breast Cancer Data Set a pre-processed, clean data set on SKLearn. The purpose of this is to classify whether the tumour is ‘benign’ or ‘malignant’ and I will be comparing and contrasting a number of different techniques as a means of understanding the data. As this is a relatively small data set, I don&amp;rsquo;t foresee any meaningful difference in the models&amp;rsquo; power of prediciton.</description>
+    </item>
+    
+  </channel>
+</rss>

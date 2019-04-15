@@ -1,31 +1,94 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Dom&#39;s Data Blog</title>
-    <link>http://datk12.github.io/tags/</link>
-    <description>Recent content in Tags on Dom&#39;s Data Blog</description>
+    <title>Tags on Dom Atkinson</title>
+    <link>https://datk12.github.io/tags/</link>
+    <description>Recent content in Tags on Dom Atkinson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Thu, 14 Mar 2019 11:36:32 +0000</lastBuildDate>
     
-	<atom:link href="http://datk12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://datk12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Boston</title>
-      <link>http://datk12.github.io/tags/boston/</link>
+      <link>https://datk12.github.io/tags/boston/</link>
       <pubDate>Thu, 14 Mar 2019 11:36:32 +0000</pubDate>
       
-      <guid>http://datk12.github.io/tags/boston/</guid>
+      <guid>https://datk12.github.io/tags/boston/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linear Regression</title>
-      <link>http://datk12.github.io/tags/linear-regression/</link>
+      <link>https://datk12.github.io/tags/linear-regression/</link>
       <pubDate>Thu, 14 Mar 2019 11:36:32 +0000</pubDate>
       
-      <guid>http://datk12.github.io/tags/linear-regression/</guid>
+      <guid>https://datk12.github.io/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://datk12.github.io/tags/logistic-regression/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nlp</title>
+      <link>https://datk12.github.io/tags/nlp/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forest Regressor</title>
+      <link>https://datk12.github.io/tags/random-forest-regressor/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/random-forest-regressor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scrapy</title>
+      <link>https://datk12.github.io/tags/scrapy/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/scrapy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trump</title>
+      <link>https://datk12.github.io/tags/trump/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/trump/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Twitter</title>
+      <link>https://datk12.github.io/tags/twitter/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wisconsin Breat Cancer</title>
+      <link>https://datk12.github.io/tags/wisconsin-breat-cancer/</link>
+      <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/tags/wisconsin-breat-cancer/</guid>
       <description></description>
     </item>
     

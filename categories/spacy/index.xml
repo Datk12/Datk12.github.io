@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spacy on Dom Atkinson</title>
+    <link>https://datk12.github.io/categories/spacy/</link>
+    <description>Recent content in Spacy on Dom Atkinson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 11 Apr 2019 06:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://datk12.github.io/categories/spacy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Trump Twitter Analysis - Part 1</title>
+      <link>https://datk12.github.io/post/trump-part-1/</link>
+      <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/post/trump-part-1/</guid>
+      <description>Upon learning about Trump twitter archive, I immediately recognised the opportunity to subject the President’s tweets to some analysis. Without doubt President Trump, before many other politicians, understood the power of Twitter as a means of disseminating his message. His message has many characteristic features. Perhaps this is not surprising given the President&amp;rsquo;s former career as a reality television star. One phrase from the election campaign that stood out to me, an uninformed observer from outside the US, was &amp;lsquo;Crooked Hillary&amp;rsquo;.</description>
+    </item>
+    
+  </channel>
+</rss>
