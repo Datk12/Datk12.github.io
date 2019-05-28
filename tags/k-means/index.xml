@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K Means on Dom Atkinson</title>
+    <link>https://datk12.github.io/tags/k-means/</link>
+    <description>Recent content in K Means on Dom Atkinson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Thu, 16 May 2019 06:30:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://datk12.github.io/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>K-Means and Satellite Imaging</title>
+      <link>https://datk12.github.io/post/k-means-and-satellite-imagery/</link>
+      <pubDate>Thu, 16 May 2019 06:30:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/post/k-means-and-satellite-imagery/</guid>
+      <description>Today I will be looking at K-Means, one of the most common unsupervised machine learning algorithms for clustering problems. Clustering refers to a series of methods for finding subgroups or clusters within datasets. It is in this sense that clustering can be a thought of as an unsupervised learning method, in that we are trying to discover structure that may or may not be previously known.
+The K in K-Means refers to the number of clusters we wish to partition the data into.</description>
+    </item>
+    
+  </channel>
+</rss>

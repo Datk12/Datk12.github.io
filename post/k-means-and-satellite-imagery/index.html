@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https://datk12.github.io"
+        },
+        "articleSection" : "post",
+        "name" : "K-Means and Satellite Imaging",
+        "headline" : "K-Means and Satellite Imaging",
+        "description" : "Today I will be looking at K-Means, one of the most common unsupervised machine learning algorithms for clustering problems. Clustering refers to a series of methods for finding subgroups or clusters within datasets. It is in this sense that clustering can be a thought of as an unsupervised learning method, in that we are trying to discover structure that may or may not be previously known.
+The K in K-Means refers to the number of clusters we wish to partition the data into.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-05-16 06:30:00 &#43;0000 UTC",
+        "dateModified" : "2019-05-16 06:30:00 &#43;0000 UTC",
+        "url" : "https://datk12.github.io/post/k-means-and-satellite-imagery/",
+        "wordCount" : "844",
+        "image" : https://datk12.github.ioimg/portfolio/k-means_map_1.png",
+        "keywords" : [ "K-Means","GDAL","Blog" ]   
+    }
+    </script>
+
+
+ <title>K-Means and Satellite Imaging </title>
+
+
+<meta name="description" content="" />
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link href="https://datk12.github.io/css/style.css?v=1559028136" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="https://datk12.github.io/css/custom.css?v=1559028136" rel="stylesheet" type='text/css' media='all'>
+<link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+
+    <div class="menu">
+
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/gdal">gdal</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/k-means">k-means</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/linear-regression">linear-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/logistic-regression">logistic-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/nlp">nlp</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/random-forest-regressor">random-forest-regressor</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/scrapy">scrapy</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/spacy">spacy</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <ul class="social-media-icons">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+  </ul></div>
+
+      </div>
+
+      <div class="container">
+        <div id="title-info" class="title-info">
+  <div id='site-title' class='site-title'>
+    
+    <a href="/"> Dom Atkinson </a>
+    </div>
+  </div>
+  <button id="toggle-navigation" class="toggle-navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+  <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+
+    <div class="menu">
+      <ul id="menu-primary-items" class="menu-primary-items">
+        
+        
+        <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+          <a href="https://datk12.github.io/">Home</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="https://datk12.github.io/about/">About</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      
+  
+  
+    
+  
+  
+  <div id="loop-container" class="loop-container">
+    
+    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+
+      <div class='featured-image lazy lazy-bg-image'  data-background="https://datk12.github.io/img/portfolio/k-means_map_1.png">
+      </div>
+      
+        <div class="entry-meta">
+          <span class="date">16 May</span>	<span> / </span>
+
+          <span class="author">
+            <a href="https://datk12.github.io" title="Posts by Dom Atkinson" rel="author">Dom Atkinson</a>
+          </span>
+
+
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/k-means">K-Means</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/gdal">GDAL</a>
+          </span>
+          
+
+
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> K-Means and Satellite Imaging</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Today I will be looking at K-Means, one of the most common unsupervised machine learning algorithms for clustering problems. Clustering refers to a series of methods for finding subgroups or clusters within datasets. It is in this sense that clustering can be a thought of as an unsupervised learning method, in that we are trying to discover structure that may or may not be previously known.</p>
+
+<p>The K in K-Means refers to the number of clusters we wish to partition the data into. The algorithm assumes that every observation belongs to one of the clusters and that clusters are not overlapping. This prompts the question; how do we evaluate what is a good number of clusters? This question probably warrants an entire blog post by itself, there exist statistical criterion such as the Bayesian Information Criterion or Akaike Information Criterion devoted to this purpose. These are beyond the scope of what we are looking at today, so perhaps a simplistic answer is, the number that create the smallest variation within clusters. This strikes at the heart of one of the weaknesses of K-Means, the selection of K number of clusters by the party undertaking the experiment. It either requires domain specific knowledge of the data at hand or the running of multiple models until an adequate result is found.</p>
+
+<p>The way K-Means works, is by randomly assigning a centroid for each K-cluster from among the data point. After this, the algorithm iterates until the centroids remain static, taking the following steps: 1) It assigns each observation to the cluster with the nearest centroid in terms of Euclidean distance. 2) It calculates new centroids based on the mean values of coordinates after all observations have been assigned to a cluster.</p>
+
+<p><strong><em>EXAMPLE 1</em></strong></p>
+
+<p>Let’s cast our mind back to a previous blog post, in which I had a look at a regression problem with the Boston House price dataset. I was looking for variables that were highly correlated to average house price of Boston suburbs. One of them was LSTAT, which was the percentage of the population that were defined as ‘lower status’. Here is a scatter plot of them.</p>
+
+<p><img src="/img/k-means/k-means_ex_1.png" alt="k-means first" /></p>
+
+<p>If we wanted to cluster these observations, it is as simple as instantiating a K-Means class from the Sci-Kit Learn library, defining the number of clusters desired and calling the fit method on the data. In this case we have arbitraily chosen K = 3. Sci-Kit Learns KMeans class produces labels after it has been fit, which can be passed into the colour parameter of the scatter plot. Here is the code.</p>
+
+<p><img src="/img/k-means/k-means_ex_2.png" alt="k-means second" /></p>
+
+<p>And here is the result.</p>
+
+<p><img src="/img/k-means/k-means_ex_3.png" alt="k-means third" /></p>
+
+<p>Of course, one of the characteristics of K-Means is thatit is not always obvious what the optimum number of clusters is.</p>
+
+<p><img src="/img/k-means/k-means_ex_4.png" alt="k-means fourth" /></p>
+
+<p>Here we loop through serveral potentia options.</p>
+
+<p><img src="/img/k-means/k-means_ex_5.png" alt="k-means fifth" />
+<img src="/img/k-means/k-means_ex_6.png" alt="k-means sixth" />
+<img src="/img/k-means/k-means_ex_7.png" alt="k-means seventh" />
+<img src="/img/k-means/k-means_ex_8.png" alt="k-means eight" />
+<img src="/img/k-means/k-means_ex_9.png" alt="k-means ninth" />
+<img src="/img/k-means/k-means_ex_10.png" alt="k-means tenth" /></p>
+
+<p><strong><em>EXAMPLE 2</em></strong></p>
+
+<p>One of the more interesting ways that K-Means has been used is in classifying Satellite data. This has been useful, for example, in identifying areas in danger of suffering a forest fire or drought. This is possible because pictures can be represented in vectors of RGB (Red, Green, Blue) values. More modern methods make use of Neural Nets to classify this type of data, but it is an interesting application of K-Means.</p>
+
+<p>To do so with Python only requires GDAL, Matplotlib, Numpy, SkLearn and Satellite data.</p>
+
+<p><a href="https://eos.com/landviewer/?lat=52.68162&amp;lng=0.93783&amp;z=11">Eos</a> offers its Land Viewer service, which allows the user to search for satellite imagery on the fly for analytics. It’s quite amazing and I would recommend giving it a look if you haven’t already done so. I chose a tip of land by Lake Burullus in Egpyt for this exampel for no other purpose than I wanted a picture with numerous types of terrain. Hopefully, it will be a good example of K-means effects on RGB matrices. Here is the original.</p>
+
+<p><img src="/img/k-means/k-means_orig.png" alt="k-means sat" /></p>
+
+<p>The images can be saved in a .tiff format, which GDAL can convert into a Raster, a dot matrix data structure. This can then be converted into a vector, on which we can run K-Means. The picture loses some of its information, but other aspects can be emphasised, helping in the kind of problems described above.</p>
+
+<p>In this case, the image takes the shape of an array of (619, 1237). To run K-Means we need to flatten this to an array of (-1,1). As a quick aside, numpy has an inbuilt function for this which is helpfully called .reshape. By passing in -1 for the first parameter, we are telling to flatten the array such that it has as many rows as necessary to retain the data with a single column. In this case it takes the shape of (765703, 1).</p>
+
+<p>Then it is as simple as instantiating a KMeans class, fitting the data to it, creating an instance of the labels produced and reshaping it all to the dimensions of the original image.</p>
+
+<p><img src="/img/k-means/k-means_11.png" alt="k-means eleven" /></p>
+
+<p>Helpfully, Matplotlib has the .imshow() method, which can display a 2-D raster as an image. Let’s take a look at the result.</p>
+
+<p><img src="/img/k-means/k-means_sat_1.png" alt="k-means satellite" /></p>
+
+<p>Interesting! This seems like a good place to leave it this time. Thanks for reading!</p>
+
+            </article>
+          </div>
+          
+      <div class='entry-meta-bottom'>
+        
+
+  <div class="entry-categories"><p><span>Categories</span>
+    
+    <a href="/categories/k-means" title="View all posts in K-Means">K-Means</a>
+    <a href="/categories/gdal" title="View all posts in GDAL">GDAL</a>
+  </p>
+</div>
+
+
+
+<div class="entry-tags"><p><span>Tags</span>
+  
+  <a href="/tags/k-means" title="View all posts tagged K-Means">K-Means</a>
+  
+  <a href="/tags/gdal" title="View all posts tagged GDAL">GDAL</a>
+  
+
+</p></div>	</div>
+
+	
+</div>
+</div>
+
+<section id="comments" class="comments">
+  
+
+  
+
+
+
+
+</section>
+</div>
+
+ 
+
+
+
+    </div>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+    
+    <a href=""> Dom Atkinson </a>
+    
+	</h1>
+
+			
+
+		<div id="menu-footer" class="menu-container menu-footer" role="navigation">
+		<div class="menu">
+
+      <ul id="menu-footer-items" class="menu-footer-items">
+        
+</ul>
+
+</div>	</div>
+
+<ul class="social-media-icons">
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        
+
+				</ul>	<div class="design-credit">
+		
+		<p>
+			Nederburg Hugo Theme by <a target="_blank" href="https://appernetic.io">Appernetic</a>.
+		</p>
+		<p>
+			A port of Tracks by Compete Themes.
+		</p>
+		
+	</div>
+</footer>
+
+  </div>
+  <script src="https://datk12.github.io/js/jquery.min.js"></script>
+<script src="https://datk12.github.io/js/jquerymigrate.js"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1559028136"></script>
+
+</body>
+</html>

@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://datk12.github.io/post/k-means-and-satellite-imagery/</loc>
+    <lastmod>2019-05-16T06:30:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://datk12.github.io/post/trump-part-1/</loc>
     <lastmod>2019-04-11T06:30:00+00:00</lastmod>
   </url>
@@ -35,6 +40,30 @@
   <url>
     <loc>https://datk12.github.io/</loc>
     <lastmod>2019-03-14T11:36:32+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datk12.github.io/tags/gdal/</loc>
+    <lastmod>2019-05-16T06:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datk12.github.io/categories/gdal/</loc>
+    <lastmod>2019-05-16T06:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datk12.github.io/tags/k-means/</loc>
+    <lastmod>2019-05-16T06:30:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://datk12.github.io/categories/k-means/</loc>
+    <lastmod>2019-05-16T06:30:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

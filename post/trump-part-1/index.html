@@ -24,7 +24,7 @@
         "datePublished": "2019-04-11 06:30:00 &#43;0000 UTC",
         "dateModified" : "2019-04-11 06:30:00 &#43;0000 UTC",
         "url" : "https://datk12.github.io/post/trump-part-1/",
-        "wordCount" : "1657",
+        "wordCount" : "1655",
         "image" : https://datk12.github.ioimg/portfolio/smug_trump.jpg",
         "keywords" : [ "NLP","Scrapy","Twitter","Trump","Blog" ]   
     }
@@ -45,9 +45,9 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-<link href="https://datk12.github.io/css/style.css?v=1555325019" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+<link href="https://datk12.github.io/css/style.css?v=1559028136" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
 
-<link href="https://datk12.github.io/css/custom.css?v=1555325019" rel="stylesheet" type='text/css' media='all'>
+<link href="https://datk12.github.io/css/custom.css?v=1559028136" rel="stylesheet" type='text/css' media='all'>
 <link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
 
@@ -69,6 +69,14 @@
     <div class="menu">
 
       <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/gdal">gdal</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/k-means">k-means</a>
+        </li>
         
         <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
           <a href="/categories/linear-regression">linear-regression</a>
@@ -257,11 +265,11 @@
 
 <p><img src="/img/trump/trump_most_hash.png" alt="trump most hash" /></p>
 
-<p>Next came the task of processing this data for use in analysis. I decided to use a method called ‘one hot encoding’. Much like I used earlier with my hashtag column, one hot encoding creates a binary classification for a categorical variable. For example, if a tweet contains ‘#trump2016’, it is recorded with 1, or else if it does not it contain ‘#trump2016’ it contains 0.</p>
+<p>Next came the task of processing this data for use in analysis. I decided to use a method called ‘one hot encoding’. Much like I used earlier with my hashtag column, one hot encoding creates a binary indicator for a categorical variable. For example, if a tweet contains ‘#trump2016’, it is recorded with 1, or else if it does not it contain ‘#trump2016’ it contains 0.</p>
 
 <p><img src="/img/trump/trump_one_hot.png" alt="trump one hot" /></p>
 
-<p>In the interest of brevity, I decided to only add Trump’s 100 most common hashtags. This was done by looping through every tweet and creating a dictionary a dictionary for every row. Within this loop I would then loop through all of the 100 most common hashtags and use the hashtag as a key and 1 or 0 as a value depending on whether the tweet included the hashtag in question. I then appended the dictionary to an empty list and converted it into a Pandas data frame. Finally, I concatenated these new entries into the original data frame.</p>
+<p>In the interest of brevity, I decided to only add Trump’s 100 most common hashtags. This was done by looping through every tweet and creating a dictionary for every row. Within this loop I would then loop through all of the 100 most common hashtags and use the hashtag as a key and 1 or 0 as a value depending on whether the tweet included the hashtag in question. I then appended the dictionary to an empty list and converted it into a Pandas data frame. Finally, I concatenated these new entries into the original data frame.</p>
 
 <p><img src="/img/trump/trump_headers.png" alt="trump headers" /></p>
 
@@ -279,7 +287,7 @@
 
 <p><img src="/img/trump/trump_descriptive.png" alt="trump descriptive" /></p>
 
-<p>This got me to thinking whether or not there are particular hashtags that are associated with these far more popular tweets. If there are, what is the lifecycle of such a hashtag? Are they messages the President can lean upon for a show of support when he deems fits? Or do they in reference to something more specific to the new cycle?</p>
+<p>This got me to thinking whether or not there are particular hashtags that are associated with these far more popular tweets. If there are, what is the lifecycle of such a hashtag? Are they messages the President can lean upon for a show of support when he deems fits? Or are they in reference to something more specific to the new cycle?</p>
 
 <p>One way of identifying the tweets that are most popular with the President’s twitter followers, would be to identify those with the highest ‘retweet ratio’. That is, those hashtags that garner the highest number of retweets relative to their use. Next, of those tweets with the highest retweet ratio one could look at the frequency of their use over time and investigate their lifecycle. If the President had some ‘go-to’ hashtags, it is conceivable their use and popularity would endure over time.</p>
 
@@ -444,7 +452,7 @@
   </div>
   <script src="https://datk12.github.io/js/jquery.min.js"></script>
 <script src="https://datk12.github.io/js/jquerymigrate.js"></script>
-<script src="https://datk12.github.io/js/production.min.js?v=1555325019"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1559028136"></script>
 
 </body>
 </html>
