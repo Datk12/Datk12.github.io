@@ -11,6 +11,24 @@
     
     
     <item>
+      <title>Data Cleaning</title>
+      <link>https://datk12.github.io/categories/data-cleaning/</link>
+      <pubDate>Wed, 12 Jun 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/data-cleaning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis</title>
+      <link>https://datk12.github.io/categories/exploratory-data-analysis/</link>
+      <pubDate>Wed, 12 Jun 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/exploratory-data-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Gdal</title>
       <link>https://datk12.github.io/categories/gdal/</link>
       <pubDate>Thu, 16 May 2019 06:30:00 +0000</pubDate>
@@ -47,6 +65,15 @@
     </item>
     
     <item>
+      <title>Monte Carlo Simulations</title>
+      <link>https://datk12.github.io/categories/monte-carlo-simulations/</link>
+      <pubDate>Sun, 04 Aug 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/monte-carlo-simulations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Nlp</title>
       <link>https://datk12.github.io/categories/nlp/</link>
       <pubDate>Thu, 11 Apr 2019 06:30:00 +0000</pubDate>
@@ -56,11 +83,38 @@
     </item>
     
     <item>
+      <title>Python</title>
+      <link>https://datk12.github.io/categories/python/</link>
+      <pubDate>Sun, 04 Aug 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://datk12.github.io/categories/r/</link>
+      <pubDate>Wed, 10 Jul 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Random Forest Regressor</title>
       <link>https://datk12.github.io/categories/random-forest-regressor/</link>
       <pubDate>Thu, 14 Mar 2019 11:37:00 +0000</pubDate>
       
       <guid>https://datk12.github.io/categories/random-forest-regressor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Roulette</title>
+      <link>https://datk12.github.io/categories/roulette/</link>
+      <pubDate>Sun, 04 Aug 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/categories/roulette/</guid>
       <description></description>
     </item>
     

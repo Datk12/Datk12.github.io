@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exploratory Data Analysis on Dom Atkinson</title>
+    <link>https://datk12.github.io/tags/exploratory-data-analysis/</link>
+    <description>Recent content in Exploratory Data Analysis on Dom Atkinson</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Wed, 12 Jun 2019 11:37:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://datk12.github.io/tags/exploratory-data-analysis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Some Thoughts on Data Cleaning</title>
+      <link>https://datk12.github.io/post/thoughts-on-data-cleaning/</link>
+      <pubDate>Wed, 12 Jun 2019 11:37:00 +0000</pubDate>
+      
+      <guid>https://datk12.github.io/post/thoughts-on-data-cleaning/</guid>
+      <description>Data cleaning is messy. It is also perpetual. If you handle raw data, the chances are that it requires cleaning. You often hear that data scientists or data analysts spend up to 80% of their time cleaning data. However, for a beginner, it isn’t always clear how to go about cleaning data. What is clean? Here follows some techniques and concepts that I have learnt on the matter so far.</description>
+    </item>
+    
+  </channel>
+</rss>

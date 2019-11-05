@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https://datk12.github.io"
+        },
+        "articleSection" : "post",
+        "name" : "More Monte Carlo Simulations with Python",
+        "headline" : "More Monte Carlo Simulations with Python",
+        "description" : "Following on from my previous post surveying some of the concepts underpinning statistics and probability, I thought it might be interesting to apply some Monte Carlo simulations to Roulette, as a means of consolidating some of the topics covered.
+Suppose we have a friend, named Adam, who wants to visit a casino, in either Las Vegas or Monte Carlo this weekend. He intends to gamble but is equipped with nothing other than a burning hole in his wallet and a keen desire &lsquo;to beat the house&rsquo;.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-08-04 11:37:00 &#43;0000 UTC",
+        "dateModified" : "2019-08-04 11:37:00 &#43;0000 UTC",
+        "url" : "https://datk12.github.io/post/roulette_sims/",
+        "wordCount" : "1600",
+        "image" : https://datk12.github.ioimg/portfolio/roulette.jpg",
+        "keywords" : [ "Python","Monte Carlo Simulations","Blog" ]   
+    }
+    </script>
+
+
+ <title>More Monte Carlo Simulations with Python </title>
+
+
+<meta name="description" content="" />
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link href="https://datk12.github.io/css/style.css?v=1572963826" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="https://datk12.github.io/css/custom.css?v=1572963826" rel="stylesheet" type='text/css' media='all'>
+<link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+
+    <div class="menu">
+
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/data-cleaning">data-cleaning</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/exploratory-data-analysis">exploratory-data-analysis</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/gdal">gdal</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/k-means">k-means</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/linear-regression">linear-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/logistic-regression">logistic-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/monte-carlo-simulations">monte-carlo-simulations</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/nlp">nlp</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/python">python</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/r">r</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/random-forest-regressor">random-forest-regressor</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/roulette">roulette</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/scrapy">scrapy</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/spacy">spacy</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <ul class="social-media-icons">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+  </ul></div>
+
+      </div>
+
+      <div class="container">
+        <div id="title-info" class="title-info">
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+  <div id='site-title' class='site-title'>
+    
+    <a href="/"> Dom Atkinson </a>
+    </div>
+  </div>
+  <button id="toggle-navigation" class="toggle-navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+  <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+
+    <div class="menu">
+      <ul id="menu-primary-items" class="menu-primary-items">
+        
+        
+        <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+          <a href="https://datk12.github.io/">Home</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="https://datk12.github.io/about/">About</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      
+  
+  
+    
+  
+  
+  <div id="loop-container" class="loop-container">
+    
+    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+
+      <div class='featured-image lazy lazy-bg-image'  data-background="https://datk12.github.io/img/portfolio/roulette.jpg">
+      </div>
+      
+        <div class="entry-meta">
+          <span class="date">04 August</span>	<span> / </span>
+
+          <span class="author">
+            <a href="https://datk12.github.io" title="Posts by Dom Atkinson" rel="author">Dom Atkinson</a>
+          </span>
+
+
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/python">Python</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/monte-carlo-simulations">Monte Carlo Simulations</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/roulette">Roulette</a>
+          </span>
+          
+
+
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> More Monte Carlo Simulations with Python</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Following on from my previous post surveying some of the concepts underpinning statistics and probability, I thought it might be interesting to apply some Monte Carlo simulations to Roulette, as a means of consolidating some of the topics covered.</p>
+
+<p>Suppose we have a friend, named Adam, who wants to visit a casino, in either Las Vegas or Monte Carlo this weekend. He intends to gamble but is equipped with nothing other than a burning hole in his wallet and a keen desire &lsquo;to beat the house&rsquo;. In his great and unmatched wisdom, he has approached you to help him.  You accept. With the knowledge acquired in the last post, you rush to your laptop and begin figuring out the odds associated with Roulette.</p>
+
+<p><strong>Part 1</strong></p>
+
+<p>Immediately alarm bells begin to ring in your ears. As was established in the previous article, we know that over a large number of trials, the Law of Large Numbers states that the results will tend towards the expected value. It is reasonable to assume that this is favourable to the casino and is in fact the basis of its profits. But before we crush Adam’s dreams, let’s figure out some of the probabilities associated with roulette and then apply them empirically in Monte Carlo simulations.</p>
+
+<p>To begin with, let’s clarify the distinction between European Roulette and American Roulette. European Roulette wheels have numbers from 0 to 36. The ball landing on 0 is always a house win. Thus there are 37 potential spots for the ball to land. American Roulette wheels are very similar, except that it includes a 00 as well. Thus there are 38 total spots for the ball to land. There you have it, the great continental divide between roulette wheels. Let&rsquo;s take a look at the implied probabilities on the sample space.</p>
+
+<p><strong>European Roulette:</strong></p>
+
+<ul>
+<li>High (&gt;= 19) /Low (&lt;= 18) bet @ odds of 1:1. = (1 x <sup>18</sup>&frasl;<sub>37</sub>) – (1 x <sup>19</sup>&frasl;<sub>37</sub>) = -0.02702</li>
+<li>Red/Black bet @ odds of 1:1 = (1 x <sup>18</sup>&frasl;<sub>37</sub>) – (1 x <sup>19</sup>&frasl;<sub>37</sub>) = -0.02702</li>
+<li>Single Number bet @ 35:1 = (35 x <sup>1</sup>&frasl;<sub>37</sub>) – (1 x <sup>36</sup>&frasl;<sub>37</sub>) = -0.02702</li>
+</ul>
+
+<p><strong>American Roulette:</strong></p>
+
+<ul>
+<li>High (&gt;= 19) /Low (&lt;= 18) bet @ odds of 1:1. = (1 x <sup>18</sup>&frasl;<sub>38</sub>) – (1 x <sup>20</sup>&frasl;<sub>38</sub>) = -0.05263</li>
+<li>Red/Black bet @ odds of 1:1 = (1 x <sup>18</sup>&frasl;<sub>38</sub>) – (1 x <sup>20</sup>&frasl;<sub>38</sub>) = -0.05263</li>
+<li>Single Number bet @ 35:1 = (35 x <sup>1</sup>&frasl;<sub>38</sub>) – (1 x <sup>37</sup>&frasl;<sub>38</sub>) = -0.05263</li>
+</ul>
+
+<p><strong>Simulations</strong></p>
+
+<p>While this is far from an exhaustive analysis of the bets made at Roulette tables, it does suggest, over the long term at least, that the best destination to play Roulette is Monte Carlo. Best, of course, is relative. The expected return is actually a loss of 2.7p for every £1 bet. Still, we know that the expected value is actually the long term weighted average and that it is still possible to make money at the roulette wheels.</p>
+
+<p>Ever the empiricist, Adam asks you to create some simulations. You construct the most basic model for a single bet of £10 on high numbers(This offers exactly the same odds and probabilities as Red/Black):</p>
+
+<pre><code>num = random.randint(0,36)
+if num &gt;= 19:
+    print(&quot;You earn £20!&quot;)
+else:
+    print(&quot;You lose £10!&quot;)
+
+You lose £10!
+</code></pre>
+
+<p>While it <em>seems</em> like you lose money more frequently than you gain money, this is not sufficient. So, you build a simulation of the same bet with a limit of 1000 games:</p>
+
+<pre><code>bankroll = 100
+
+for i in range(1000):
+    bankroll -= 10
+    num = random.randint(0,36)
+    if num &gt;= 19:
+        bankroll += 20
+
+print(&quot;Bankroll after playing 1000 games: £%d&quot; %bankroll)
+
+Bankroll after playing 1000 games: £460
+</code></pre>
+
+<p>Great news! You have more than quadrupled your money. However, one has the sneaking suspicion that, aside from the vast amount of time required to spin a roulette wheel 1000 times (The average roulette wheel spins 45 times an hour in US Casinos. 1000 times would likely be just under a day spent sat the table - Uh oh!), there is no guarantee that the bankroll didn&rsquo;t go into serious negative territory before it came back out. No, Adam demands rigour and visualisations!</p>
+
+<pre><code>bankroll = 100
+high_walk_results = []
+games = 1
+
+
+while bankroll &gt;= 0 and bankroll &lt;= 1000 and games &lt;= 1000:
+    games += 1
+    bankroll -= 10
+    num = random.randint(0,36)
+    if num &gt;= 19:
+        bankroll += 20
+        high_walk_results.append(bankroll)
+    else:
+        high_walk_results.append(bankroll)
+
+print(&quot;Bankroll after playing %d games : £%d&quot; %(games, bankroll))
+
+Bankroll after playing 126 games : £-10
+</code></pre>
+
+<p>This time we have an upper limit of £1000 and a lower limit if the bankroll goes below 0. The game is capped at 1000 spins too. This simulates a disciplined player and ends with a loss after 126 spins:</p>
+
+<p><img src="/img/roulette/high_walk_capped.png" alt="high walk capped" /></p>
+
+<p>Although interesting, it might be more insightful to visualise more than one game. This time, without an upper limit on the bankroll and only 100 spins:</p>
+
+<p><img src="/img/roulette/multi_high_walk.png" alt="multi high walk" /></p>
+
+<p>While four games out of five resulted in a loss of your bankroll, one was cut off too soon! Adam&rsquo;s palms get sweaty. How about just the ceiling for the bankroll:</p>
+
+<p><img src="/img/roulette/multi_high_walk_bank_ceiling.png" alt="multi high walk bank ceiling" /></p>
+
+<p>This doesn&rsquo;t look too promising. Adam insists that you simulate a single number bet, on the basis of a larger potential reward for a successful spin. Undeterred you do:</p>
+
+<p><img src="/img/roulette/single_single_walk.png" alt="single single walk" /></p>
+
+<p>Ahh, that is quite disheartening. But it is only a single example after all. Let&rsquo;s try many:</p>
+
+<p><img src="/img/roulette/multi_single_walk.png" alt="multi single walk" /></p>
+
+<p>That is quite gloomy.</p>
+
+<p>Let&rsquo;s calculate the expected value based on the results. The same formula could be used as is used to calculate the expected value on the sample space, replacing the implied probability of profit/loss with the relative frequency.</p>
+
+<p>However, in the interest of simplicity, loss per unit staked can be used. This is simply the total result divided by the total result. For high numbers:</p>
+
+<pre><code>result = []
+stakes = []
+
+for i in range(1000000):
+    num = random.randint(0,36)
+    stakes.append(10)
+    if num &gt;= 19:
+        result.append(10)
+    else:
+        result.append(-10)
+
+sum(result) / sum(stakes)
+
+-0.02682
+</code></pre>
+
+<p>And for a single number:</p>
+
+<pre><code>result = []
+stakes = []
+
+for i in range(1000000):
+    num = random.randint(0,36)
+    stakes.append(10)
+    if num == 8:
+        result.append(350)
+    else:
+        result.append(-10)
+
+sum(result) / sum(stakes)
+
+-0.025408
+</code></pre>
+
+<p>Lo and behold: the expected value does not deviate greatly from that calculated on the sample space: -0.027.</p>
+
+<p><strong>Strategies</strong></p>
+
+<p>In the meantime, Adam has been reading about various strategies that people online have been using to make a profit on roulette. Casinos hate them! Before you can remind him about the law of large numbers, he insists that you run a number of simulations following the Big-Martingale and D’Alembert strategies. You sigh and turn back to the laptop.</p>
+
+<p>Both strategies are fairly easy to understand and rely on 18 number probability patterns (think High/Low or Red/Black) at odds of 1:1.</p>
+
+<p><strong>D’Alembert Strategy</strong></p>
+
+<p>The D’Alembert Strategy begins with an initial stake of 1 unit (1 chip, £10, $10 etc.). If you lose a round, you increase the stake by 1 unit. If you win a round, you decrease the stake by 1 unit. That’s it.</p>
+
+<p>So you write the following simulation quickly.</p>
+
+<pre><code>def multi_dalembert_roulette(stake=10, bankroll=100, total_result=[], games=0):
+    for i in range(10):
+        stake=10
+        bankroll=100
+        games=0
+        result = []
+        while bankroll &gt;= 0:
+            games += 1
+            bankroll -= stake
+            num = random.randint(0,36)
+            if num &gt;= 19 and stake &gt; 10:
+                bankroll += stake * 2
+                stake = stake - 10
+                result.append(bankroll)
+            elif num &gt;= 19 and stake == 10:
+                bankroll += stake * 2
+                stake = 10
+                result.append(bankroll)
+            else:
+                stake = stake + 10
+                result.append(bankroll)
+        total_result.append(result)
+    return total_result
+</code></pre>
+
+<p>And here visualise the results:</p>
+
+<p><img src="/img/roulette/dalembert_strat_10.png" alt="multi_dalembert_walk" /></p>
+
+<p>How about after 100 spins?</p>
+
+<p><img src="/img/roulette/dalembert_dist_strat.png" alt="dalembert dist" /></p>
+
+<p>What about the loss per unit staked?</p>
+
+<pre><code>def expected_value_dalembert_roulette(stake=10, result=[], stakes=[], games=1):
+        while games &lt;= 1000000:
+            games += 1
+            num = random.randint(0,36)
+            stakes.append(stake)
+            if num &gt;= 19 and stake &gt; 10:
+                result.append(stake)
+                stake = stake - 10
+            elif num &gt;= 19 and stake == 10:
+                result.append(stake)
+                stake = 10
+            else:
+                result.append(0-stake)
+                stake = stake + 10
+        return stakes, result
+
+dalembert_stakes, dalembert_results = expected_value_dalembert_roulette()
+
+sum(dalembert_results) / sum(dalembert_stakes)
+
+-0.0270554915380498
+
+</code></pre>
+
+<p>As suggested by the expected value.</p>
+
+<p><strong>Big-Martingale Strategy</strong></p>
+
+<p>The Big-Martingale Strategy also begins with an initial stake of 1 unit. If you lose, you double the stake. Unsurprisingly, consecutive losses snowball very quickly. Below we create a generator to simulate the growing size of ones losses after consecutive unsuccessful spins following the Big-Martingle Strategy.</p>
+
+<pre><code>def big_martingale_sim():
+
+    i = 1
+
+    while True:
+        yield i
+        i = i * 2
+
+b = big_martingale_sim()
+
+big_martingale_list = [next(b) for i in range(15)]
+</code></pre>
+
+<p><img src="/img/roulette/bigm_loss_growth.png" alt="bigm growth of loss" /></p>
+
+<p>Still, you promised Adam a simulation.</p>
+
+<pre><code>def multi_big_martingale_roulette(stake=10,bankroll=100, end_result=[], games=1):
+    for i in range(10):
+        stake=10
+        bankroll=100
+        games=1
+        result = []
+        while bankroll &gt;= 0:
+            bankroll -= stake
+            num = random.randint(0,36)
+            games += 1
+            if num &gt;= 19:
+                bankroll += stake * 2
+                stake = 10
+                result.append(bankroll)
+            else:
+                stake = (stake * 2)
+                result.append(bankroll)
+        end_result.append(result)
+    return end_result
+</code></pre>
+
+<p>Unsurprisingly, the results do not suggest the favourability of either of these strategies.</p>
+
+<p><img src="/img/roulette/bigm_strat_10.png" alt="bigm strat 10" />
+<img src="/img/roulette/bigm_dist_strat.png" alt="bigm strat dist" /></p>
+
+<p>Again we use the loss per unit staked as a proxy for the expected value,</p>
+
+<pre><code>def expected_value_bigm(stake=10, result=[], stakes=[], games=1):
+        while games &lt;= 1000000:
+            games += 1
+            num = random.randint(0,36)
+            stakes.append(stake)
+            if num &gt;= 19:
+                result.append(stake)
+                stake = 10
+            else:
+                result.append(0-stake)
+                stake = stake * 2
+        return (result, stakes)
+
+bigm_results, bigm_stakes = expected_value_bigm()
+
+sum(bigm_results) / sum(bigm_stakes)
+
+-0.027331623484638207
+</code></pre>
+
+<p>and again the result is -0.027.</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>This has been a very educational experience for both you and Adam. He has learnt about the Law of Large Numbers and it&rsquo;s basis as the profitability for casino games. That over the long run, you are practically guaranteed to lose your money at the roulette wheels. You have learnt that he may well have a nascent gambling issue and endeavour to suggest a healthier way to spend his holidays. Perhaps a weekend at the seaside?</p>
+
+            </article>
+          </div>
+          
+      <div class='entry-meta-bottom'>
+        
+
+  <div class="entry-categories"><p><span>Categories</span>
+    
+    <a href="/categories/python" title="View all posts in Python">Python</a>
+    <a href="/categories/monte-carlo-simulations" title="View all posts in Monte Carlo Simulations">Monte Carlo Simulations</a>
+    <a href="/categories/roulette" title="View all posts in Roulette">Roulette</a>
+  </p>
+</div>
+
+
+
+<div class="entry-tags"><p><span>Tags</span>
+  
+  <a href="/tags/python" title="View all posts tagged Python">Python</a>
+  
+  <a href="/tags/monte-carlo-simulations" title="View all posts tagged Monte Carlo Simulations">Monte Carlo Simulations</a>
+  
+
+</p></div>	</div>
+
+	
+</div>
+</div>
+
+<section id="comments" class="comments">
+  
+
+  
+
+
+
+
+</section>
+</div>
+
+ 
+
+
+
+    </div>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+    
+    <a href=""> Dom Atkinson </a>
+    
+	</h1>
+
+			
+
+		<div id="menu-footer" class="menu-container menu-footer" role="navigation">
+		<div class="menu">
+
+      <ul id="menu-footer-items" class="menu-footer-items">
+        
+</ul>
+
+</div>	</div>
+
+<ul class="social-media-icons">
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        
+
+				</ul>	<div class="design-credit">
+		
+		<p>
+			Nederburg Hugo Theme by <a target="_blank" href="https://appernetic.io">Appernetic</a>.
+		</p>
+		<p>
+			A port of Tracks by Compete Themes.
+		</p>
+		
+	</div>
+</footer>
+
+  </div>
+  <script src="https://datk12.github.io/js/jquery.min.js"></script>
+<script src="https://datk12.github.io/js/jquerymigrate.js"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1572963826"></script>
+
+</body>
+</html>

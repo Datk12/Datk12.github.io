@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https://datk12.github.io"
+        },
+        "articleSection" : "post",
+        "name" : "Some Thoughts on Data Cleaning",
+        "headline" : "Some Thoughts on Data Cleaning",
+        "description" : "Data cleaning is messy. It is also perpetual. If you handle raw data, the chances are that it requires cleaning. You often hear that data scientists or data analysts spend up to 80% of their time cleaning data. However, for a beginner, it isn’t always clear how to go about cleaning data. What is clean? Here follows some techniques and concepts that I have learnt on the matter so far.",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-06-12 11:37:00 &#43;0000 UTC",
+        "dateModified" : "2019-06-12 11:37:00 &#43;0000 UTC",
+        "url" : "https://datk12.github.io/post/thoughts-on-data-cleaning/",
+        "wordCount" : "1548",
+        "image" : https://datk12.github.ioimg/portfolio/cleaning.jpg",
+        "keywords" : [ "Data Cleaning","Exploratory Data Analysis","Blog" ]   
+    }
+    </script>
+
+
+ <title>Some Thoughts on Data Cleaning </title>
+
+
+<meta name="description" content="" />
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link href="https://datk12.github.io/css/style.css?v=1572963826" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="https://datk12.github.io/css/custom.css?v=1572963826" rel="stylesheet" type='text/css' media='all'>
+<link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+
+    <div class="menu">
+
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/data-cleaning">data-cleaning</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/exploratory-data-analysis">exploratory-data-analysis</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/gdal">gdal</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/k-means">k-means</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/linear-regression">linear-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/logistic-regression">logistic-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/monte-carlo-simulations">monte-carlo-simulations</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/nlp">nlp</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/python">python</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/r">r</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/random-forest-regressor">random-forest-regressor</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/roulette">roulette</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/scrapy">scrapy</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/spacy">spacy</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <ul class="social-media-icons">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+  </ul></div>
+
+      </div>
+
+      <div class="container">
+        <div id="title-info" class="title-info">
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+  <div id='site-title' class='site-title'>
+    
+    <a href="/"> Dom Atkinson </a>
+    </div>
+  </div>
+  <button id="toggle-navigation" class="toggle-navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+  <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+
+    <div class="menu">
+      <ul id="menu-primary-items" class="menu-primary-items">
+        
+        
+        <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+          <a href="https://datk12.github.io/">Home</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="https://datk12.github.io/about/">About</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      
+  
+  
+    
+  
+  
+  <div id="loop-container" class="loop-container">
+    
+    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+
+      <div class='featured-image lazy lazy-bg-image'  data-background="https://datk12.github.io/img/portfolio/cleaning.jpg">
+      </div>
+      
+        <div class="entry-meta">
+          <span class="date">12 June</span>	<span> / </span>
+
+          <span class="author">
+            <a href="https://datk12.github.io" title="Posts by Dom Atkinson" rel="author">Dom Atkinson</a>
+          </span>
+
+
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/data-cleaning">Data Cleaning</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/exploratory-data-analysis">Exploratory Data Analysis</a>
+          </span>
+          
+
+
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> Some Thoughts on Data Cleaning</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Data cleaning is messy. It is also perpetual. If you handle raw data, the chances are that it requires cleaning. You often hear that data scientists or data analysts spend up to 80% of their time cleaning data. However, for a beginner, it isn’t always clear how to go about cleaning data. What is clean? Here follows some techniques and concepts that I have learnt on the matter so far.</p>
+
+<p>Before starting, I’d like to give credit where credit is due. Much of this was learnt from a companion to Lecture 4 of Harvard CS109: Data Science by <a href="https://nbviewer.jupyter.org/github/cs109/content/blob/master/lec_04_wrangling.ipynb">Chris Beaumont</a>. Thanks Chris!</p>
+
+<p><strong>The Data</strong></p>
+
+<p>Let’s start by taking a look at the <a href="https://pypi.org/project/play-scraper/">play_scraper library</a>. This is a helpful library that allows you to scrape the Google Playstore for data. Its straightforward and not very time intensive. The documentation is simple and after a pip install, we are good to go.</p>
+
+<p>Although the purpose of this blog post is to discuss data cleaning methods, in reality the purpose would be to gain insight from data. Of course to do that, will require some understanding of WHAT can be gleaned from the data, so let’s go ahead and take a look.</p>
+
+<p><strong>Part 1: Consolidation and HDFStore.</strong></p>
+
+<p>It is as simple as instantiating a play_scraper object and calling a method from it. I called the collections method and along with the various parameters, this returns a detailed list of ‘Trending’ applications from the UK. I chose detailed as it will give us more scope to flex our data cleaning muscles.</p>
+
+<p><img src="/img/cleaning/cleaning1.png" alt="cleaning first" /></p>
+
+<p>The list is a list of dictionaries, that can easily be passed into a pandas DataFrame. Just like that we have completed the first step towards clean data, by consolidating it into a Dataframe.</p>
+
+<p><img src="/img/cleaning/cleaning2.png" alt="cleaning second" /></p>
+
+<p>Or almost. As we explore the data, we will be manipulating it. This may result in an accidental mistake or corruption. You may have noticed that it took 30.3 seconds of wall time to scrape the data. That is too long to reprocess, if needs be. With this in mind, let’s glance at HDFStore.</p>
+
+<p>HDFStore allows us to store and retrieve pre-processed data when needed. Here is how you store the data:</p>
+
+<p><img src="/img/cleaning/cleaning3.png" alt="cleaning third" /></p>
+
+<p>We can now access the data when needed, next time we open up Jupyter Notebook or if we corrupt the data. Here is how you access it:</p>
+
+<p><img src="/img/cleaning/cleaning4.png" alt="cleaning fourth" /></p>
+
+<p><strong>Part 2: Cleaning the Data</strong></p>
+
+<p>Not all data is retrieved in the same condition. This makes an algorithmic approach quite inappropriate. There is too much variety in the presentation of data. Rather, I think it is more helpful to follow a heuristic approach to cleaning a DataFrame. This will provide goals towards which you can work and will help direct you if you are unsure how to proceed with data cleaning. However, it is important to stress: it won&rsquo;t always be necessary or desirable to accomplish these points, ultimately you will have to make the decision as to what is and what isn&rsquo;t necessary.</p>
+
+<p>In general, the properties of a clean DataFrame are fourfold:</p>
+
+<p>1)  Each row describes a single object.</p>
+
+<p>2)  Each column describes a property of that object.</p>
+
+<p>3)  Columns are numeric where appropriate.</p>
+
+<p>4)  The information contained within columns cannot be further reduced.</p>
+
+<p>As proof of my above point, Play Scraper ensures that each row is an individual object. Therefore we will move onto work with the columns.</p>
+
+<p><strong>Each Column Describes a Property of that Object.</strong></p>
+
+<p>Calling the .info() method on the raw DataFrame reveals what we are working with: 30 columns x 60 rows. Broadly speaking, the cleaning for this task falls into 3 categories:</p>
+
+<p>1) Dropping useless or duplicate columns.</p>
+
+<p>2) Splitting the columns into irreducible information.</p>
+
+<p>3) Cleaning up the appropriate data types.</p>
+
+<p>It is also worth noting that this data only contains 60 observations. This is not really enough to make an informed analysis with, we will look to automate the process to increase efficiency with future batches of data.</p>
+
+<p><strong>Dropping Useless or Duplicate Categories and Missingno</strong></p>
+
+<p>Without pre-existing knowledge of the domain, there’s no shortcut to finding out which columns are duplicates or useless than by scanning through them.</p>
+
+<p>A useful tool though, can be <a href="https://github.com/ResidentMario/missingno">Missingno</a>. This library allows you to quickly visualise any missing data of a data set.</p>
+
+<p><img src="/img/cleaning/cleaning5.png" alt="cleaning fifth" /></p>
+
+<p>We soon see that the ‘description’ and ‘description_html’ columns contain no data. We can keep this is mind when we consider which columns we want to drop.</p>
+
+<p>The numerous columns relating to developers provide an example of the problem of duplicate columns.</p>
+
+<p><img src="/img/cleaning/cleaning6.png" alt="cleaning sixth" /></p>
+
+<p>Each of these is a unique string associated with the developer of the app. This poses some dangers to the statistical methods we will be running on the data set after cleaning it. The first relates to collinearity: these variables are nominal – in that they refer to a unique characteristic of the object under study, but they do not express any other characteristic. For example, they are not ordinal, they are not a ratio, they are not continuous. As such, the uniqueness of each of the variables related to developer carry no more information for the purpose of a statistical analysis than another. If we were to keep the lot of them, any correlation with the dependent variable would be split between them. Certain methods, like the Random Forrest, would be able to deal with this more robustly than others, however this takes us to the second problem, computing time.</p>
+
+<p>In the current situation, of a DataFrame of 30x60, it is unlikely that we are going to run into any issues with regards to computation while conducting a statistical analysis. It is also unlikely that we are going to uncover any meaningful statistical relationships with a DataFrame of this size. As I have already mentioned, in the cleaning of a DataFrame, it is always worth keeping an eye on the next step of an analysis. In the likely situation that we are going to require larger amounts of data, it will be useful to streamline the process and to reduce any extra computation.</p>
+
+<p>With this in mind, here is the function that will remove the DataFrames in question.</p>
+
+<p><img src="/img/cleaning/cleaning7.png" alt="cleaning seventh" /></p>
+
+<p><strong>Splitting the Columns into Irreducible Information</strong></p>
+
+<p>Whereas the last section dealt with nominal variables, this section is interested in dealing with categorical variables.</p>
+
+<p>The Content Rating column provides a good example of this. There is a lot of potentially useful data here, but it is difficult to access in its current form. This is understandable when we look at those instances that have two categories.</p>
+
+<p><img src="/img/cleaning/cleaning8.png" alt="cleaning eightth" /></p>
+
+<p>In the case of Hole.io, we have an observation that falls into two categories: PEGI12, and Moderate Violence. Although a human can easily read this, at present the algorithm would read this combination as a unique category (a unique list of strings).</p>
+
+<p>This may or may not be significant, but by splitting the categories the algorithm will have a better understanding of the predictive power of categories.</p>
+
+<p>A solution to the problem of categorical variables, is the employment of a method known as one hot encoding. This encodes the variables into columns represented by binary values.</p>
+
+<p>In the above example, this would result in Hole.io having a 1 (or True) value in both the PEGI12 column and the Moderate Violence column. This allows for more powerful predictions and a better understanding of feature importance. Here is an example of it applied to the Category column.</p>
+
+<p><img src="/img/cleaning/cleaning9.png" alt="cleaning ninth" /></p>
+
+<p>Here are some of the functions I wrote to do this.</p>
+
+<p><img src="/img/cleaning/cleaning10.png" alt="cleaning tenth" />
+<img src="/img/cleaning/cleaning11.png" alt="cleaning eleventh" />
+<img src="/img/cleaning/cleaning12.png" alt="cleaning twelfth" /></p>
+
+<p><strong>Columns Are Numeric Where Appropriate and The Information Cannot Be Reduced Any Further</strong></p>
+
+<p>This one is self-explanatory. If our purpose were to predict the number of installs of an app based on the data gathered, it would be helpful to have the number of installs available. At present they are stored as string. While it is true that an algorithm could predict these values as a category, the values would lose all ordinal value. The algorithm would be unable to say that ‘5000+’ is smaller than ‘500,000+’, only that one is associated with a certain set of predictors.</p>
+
+<p><img src="/img/cleaning/cleaning13.png" alt="cleaning thirteenth" /></p>
+
+<p>Likewise, this applies to score and a number of other columns. This function deals with the cleaning of the datatypes.</p>
+
+<p><img src="/img/cleaning/cleaning14.png" alt="cleaning fourteenth" /></p>
+
+<p><strong>Conclusion and A Note On Automation</strong></p>
+
+<p>It is at this point one can start considering the next ‘steps’ of an exploratory analysis. This would include the exploration of the global properties of the data, as well group properties within the data. Ideally, this would be furnished with visualisations and descriptive statistics. But the reality is, in the uncertain realm of exploratory data analysis, unforeseen problems can easily arise.</p>
+
+<p>Take, for instance, my decision to select the data set on the basis of ‘popularity’. It might be that after having cleaned my data set, I suddenly became aware of the implications of this selection bias. Had I haphazardly approached the problem of data cleaning, I might have to laboriously translate my previous code to a new set of data, in a frustratingly time-consuming manner. As it happens, I went about the cleaning process with automation in mind, and the functions written for the purpose of cleaning will be equally applicable to any new data from the same source as the data used. A cleaning process approached in this manner will help enormously when the inevitable road-blocks associated with the process arise.</p>
+
+            </article>
+          </div>
+          
+      <div class='entry-meta-bottom'>
+        
+
+  <div class="entry-categories"><p><span>Categories</span>
+    
+    <a href="/categories/data-cleaning" title="View all posts in Data Cleaning">Data Cleaning</a>
+    <a href="/categories/exploratory-data-analysis" title="View all posts in Exploratory Data Analysis">Exploratory Data Analysis</a>
+  </p>
+</div>
+
+
+
+<div class="entry-tags"><p><span>Tags</span>
+  
+  <a href="/tags/data-cleaning" title="View all posts tagged Data Cleaning">Data Cleaning</a>
+  
+  <a href="/tags/exploratory-data-analysis" title="View all posts tagged Exploratory Data Analysis">Exploratory Data Analysis</a>
+  
+
+</p></div>	</div>
+
+	
+</div>
+</div>
+
+<section id="comments" class="comments">
+  
+
+  
+
+
+
+
+</section>
+</div>
+
+ 
+
+
+
+    </div>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+    
+    <a href=""> Dom Atkinson </a>
+    
+	</h1>
+
+			
+
+		<div id="menu-footer" class="menu-container menu-footer" role="navigation">
+		<div class="menu">
+
+      <ul id="menu-footer-items" class="menu-footer-items">
+        
+</ul>
+
+</div>	</div>
+
+<ul class="social-media-icons">
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        
+
+				</ul>	<div class="design-credit">
+		
+		<p>
+			Nederburg Hugo Theme by <a target="_blank" href="https://appernetic.io">Appernetic</a>.
+		</p>
+		<p>
+			A port of Tracks by Compete Themes.
+		</p>
+		
+	</div>
+</footer>
+
+  </div>
+  <script src="https://datk12.github.io/js/jquery.min.js"></script>
+<script src="https://datk12.github.io/js/jquerymigrate.js"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1572963826"></script>
+
+</body>
+</html>

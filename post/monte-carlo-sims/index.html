@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<script type="application/ld+json">
+    {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": {
+             "@type": "WebPage",
+             "@id": "https://datk12.github.io"
+        },
+        "articleSection" : "post",
+        "name" : "Probability and Monte Carlo Simulations with R",
+        "headline" : "Probability and Monte Carlo Simulations with R",
+        "description" : "Today I will be using R to create Monte Carlo simulations as a means of exploring some of the ideas and concepts that underpin probability and statistics. This will provide us with an opportunity to brush up on these concepts as well as learn some of the basics of R. So, without further ado, let’s dive into the Law of Large Numbers and the Gamblers Fallacy.
+Law of Large Numbers and the Gamblers Fallacy",
+        "inLanguage" : "en",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "2019",
+        "datePublished": "2019-07-10 11:37:00 &#43;0000 UTC",
+        "dateModified" : "2019-07-10 11:37:00 &#43;0000 UTC",
+        "url" : "https://datk12.github.io/post/monte-carlo-sims/",
+        "wordCount" : "2559",
+        "image" : https://datk12.github.ioimg/portfolio/chuckaluck.jpg",
+        "keywords" : [ "R","Monte Carlo Simulations","Blog" ]   
+    }
+    </script>
+
+
+ <title>Probability and Monte Carlo Simulations with R </title>
+
+
+<meta name="description" content="" />
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<link rel="stylesheet" id="ct-tracks-google-fonts-css" href="//fonts.googleapis.com/css?family=Raleway%3A400%2C700&amp;subset=latin%2Clatin-ext&amp;ver=4.7.2" type="text/css" media="all">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<link href="https://datk12.github.io/css/style.css?v=1572963826" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+
+<link href="https://datk12.github.io/css/custom.css?v=1572963826" rel="stylesheet" type='text/css' media='all'>
+<link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
+
+
+</head>
+
+
+<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+
+  <div id="overflow-container" class="overflow-container">
+    <a class="skip-content" href="#main">Skip to content</a>
+    <header id="site-header" class="site-header" role="banner">
+      <div class='top-navigation'>
+        <div class='container'>
+
+  <div id="menu-secondary" class="menu-container menu-secondary" role="navigation">
+    <button id="toggle-secondary-navigation" class="toggle-secondary-navigation"><i class="fas fa-plus"></i></button>
+
+    <div class="menu">
+
+      <ul id="menu-secondary-items" class="menu-secondary-items">
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/data-cleaning">data-cleaning</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/exploratory-data-analysis">exploratory-data-analysis</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/gdal">gdal</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/k-means">k-means</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/linear-regression">linear-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/logistic-regression">logistic-regression</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/monte-carlo-simulations">monte-carlo-simulations</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/nlp">nlp</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/python">python</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/r">r</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/random-forest-regressor">random-forest-regressor</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/roulette">roulette</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/scrapy">scrapy</a>
+        </li>
+        
+        <li id="menu-item" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item">
+          <a href="/categories/spacy">spacy</a>
+        </li>
+        
+
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <ul class="social-media-icons">
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+    
+
+
+    
+
+    
+
+
+  </ul></div>
+
+      </div>
+
+      <div class="container">
+        <div id="title-info" class="title-info">
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
+  <div id='site-title' class='site-title'>
+    
+    <a href="/"> Dom Atkinson </a>
+    </div>
+  </div>
+  <button id="toggle-navigation" class="toggle-navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+  <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+    
+
+    <div class="menu">
+      <ul id="menu-primary-items" class="menu-primary-items">
+        
+        
+        <li id="menu-item" class='menu-item menu-item-type-custom menu-item-object-custom '>
+          <a href="https://datk12.github.io/">Home</a>
+          
+        </li>
+        
+        <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page '>
+          <a href="https://datk12.github.io/about/">About</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+
+  </div>
+
+      </div>
+    </header>
+
+    <div id="main" class="main" role="main">
+
+      
+  
+  
+    
+  
+  
+  <div id="loop-container" class="loop-container">
+    
+    <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+
+      <div class='featured-image lazy lazy-bg-image'  data-background="https://datk12.github.io/img/portfolio/chuckaluck.jpg">
+      </div>
+      
+        <div class="entry-meta">
+          <span class="date">10 July</span>	<span> / </span>
+
+          <span class="author">
+            <a href="https://datk12.github.io" title="Posts by Dom Atkinson" rel="author">Dom Atkinson</a>
+          </span>
+
+
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/r">R</a>
+          </span>
+          
+          <span class="category">
+            <span> / </span>
+
+            <a href="/categories/monte-carlo-simulations">Monte Carlo Simulations</a>
+          </span>
+          
+
+
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'> Probability and Monte Carlo Simulations with R</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article>
+              <p>Today I will be using R to create Monte Carlo simulations as a means of exploring some of the ideas and concepts that underpin probability and statistics. This will provide us with an opportunity to brush up on these concepts as well as learn some of the basics of R. So, without further ado, let’s dive into the Law of Large Numbers and the Gamblers Fallacy.</p>
+
+<p><strong>Law of Large Numbers and the Gamblers Fallacy</strong></p>
+
+<p>The easiest way to display these two ideas is to create a Monte Carlo simulation on R. A Monte Carlo simulation is an algorithmic model used to figure out the probability of an outcome. In this case, we will re-create a coin toss with R. Of course, anyone can flip a coin (that is, anyone with a coin). But as the name suggests, to observe the Law of Large Numbers requires that we flip many coins, a task that would consume far too much time.</p>
+
+<p>Herein lies the value of the Monte Carlo simulation. It is fairly easy to recreate a coin toss using R’s sample() method:</p>
+
+<pre><code>coin.toss &lt;- function(n) {sample(c('Heads', 'Tails'), n , replace = TRUE)}
+</code></pre>
+
+<p>Now how does flipping a coin apply to the Law of Large Numbers? Roughly speaking, the Law of Large Numbers states that the results obtained from a large number of random trials should be close to the expected value and will tend to become closer as more and more trials are performed. Here is the equation for what is known as ‘The Strong Law of Large Numbers’:</p>
+
+<p>$\bar{X} \to \mu$ when $n \to \infty $</p>
+
+<p>However, rather than prove the maths, we are going to display it empirically using Monte Carlo simulations.</p>
+
+<p>In the case of a fair coin toss, it is fairly easy to establish that the probability of landing on heads is 0.50 and the probability of landing on tails is 0.50. It is not uncommon, however, in a set of 10 tosses to have unevenly weighted results.</p>
+
+<pre><code>coin.toss(10)
+ [1] &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Tails&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot; &quot;Heads&quot;
+</code></pre>
+
+<p>Over the long run though, the proportion of heads to tails will tend to match their probability, even if the absolute difference between them remains greater than one. In this case, it was exactly even:</p>
+
+<pre><code>table(coin.toss(500))
+
+Heads Tails
+  250   250
+</code></pre>
+
+<p>However, this law is tightly bound up and tempered by a commonly held, yet mistaken belief: The Gamblers Fallacy. After seeing many tails in a row, we might be tempted to guess that the chances of the next toss will be heads. But a coin has no memory. So, each single toss retains an even probability of landing heads or tails. This is perhaps best visualised with a random walk.</p>
+
+<p><img src="/img/monte_carlo/r_walk_1000_toss.png" alt="r walk 1000" /></p>
+
+<p>Funnily enough this random toss of 1000 coins resulted in 500 heads and 500 tails, but it is easy to see that if the results had been cut off from earlier then the absolute difference would be much wider.</p>
+
+<p><img src="/img/monte_carlo/r_walk_coin_toss_2.png" alt="r walk 1000 2" /></p>
+
+<p>Indeed, the Law of Large Numbers makes no claim about the absolute difference between heads or tails, only that the relative frequency will approximate the probability as the number of trials increases.</p>
+
+<p>Suppose this: we flip a coin 10 times, resulting in 10 heads. Clearly, this is divergent from the expected return. If we continue flipping the coin, the probability of each flip does not change. After 10,000 flips, the initial heads remain, but their influence on the relative frequency of the outcome will be highly diluted. Thus, it is probable that there will be differences in the absolute number of heads or tails, but the influence of this on relative frequency will be negligible.</p>
+
+<p>For example, I conducted the same random walk, this time for 10,000 coin tosses.</p>
+
+<p><img src="/img/monte_carlo/r_walk_10000.png" alt="r walk 10000" /></p>
+
+<p>The final result included 26 more Heads than Tails. However, as a proportion of 10,000 this is extremely small and the relative frequency, to two decimal places, matched the expected value at 0.50 a piece.</p>
+
+<p><strong>The Central Limit Theorem</strong></p>
+
+<p>The Central Limit Theorem is widely regarded as the most important statistical discovery. It states that the sum or average of a sufficiently large number of independent variables approximately follows a normal distribution. This holds true regardless of the distribution of the independent variables.</p>
+
+<p>As a quick example, let me randomly produce some Poisson and Binomial distributions. R has the following built in methods to deal with this.</p>
+
+<pre><code> pois &lt;- rpois(100, lambda = 3)
+  binom &lt;- rbinom(10000, 20, 0.2)
+</code></pre>
+
+<p><img src="/img/monte_carlo/pois_dis.png" alt="pois dis" />
+<img src="/img/monte_carlo/binom_dis.png" alt="binom dis" /></p>
+
+<p>Now it is a case of sampling these distributions and finding the mean of the samples.</p>
+
+<pre><code>pois.mean.dis = replicate(10000, sample.mean(pois))
+binom.mean.dis = replicate(10000, sample.mean(binom))
+</code></pre>
+
+<p>And here are the results.</p>
+
+<p><img src="/img/monte_carlo/sample_mean_pois.png" alt="pois mean dis" />
+<img src="/img/monte_carlo/sample_mean_binom.png" alt="binom mean dis" /></p>
+
+<p>Neither distribution is perfectly normal. One might suspect, correctly, that as the number of samples increase, so too will the &lsquo;normality&rsquo; of the distribution. Thanks to the Law of Large Numbers of course.</p>
+
+<p>Although instructive, this is not very interesting. So, let’s create a simulation for rolling dice in R.</p>
+
+<pre><code>n.di.roll &lt;- function(n.di,n.sides) {
+    sample(1:n.sides, size = n.di, replace = TRUE)
+}
+</code></pre>
+
+<p>The following displays the distribution of relative frequencies of independent dice roll results.</p>
+
+<p><img src="/img/monte_carlo/relative_di_freq.png" alt="relative di freq" /></p>
+
+<p>Unsurprisingly a uniform distribution begins to take shape, mirroring the equally likely outcomes of all results. It’s also possible to see the law of Large Numbers taking effect. As the number of dice rolls increases, the relative frequency of the sides landed on approaches more precisely the 0.1666, or <sup>1</sup>&frasl;<sub>6</sub> of each result.</p>
+
+<p>Now, lets look at how this compares with the distribution of the sum of 2 dice.</p>
+
+<p><img src="/img/monte_carlo/sum_2_dice_100000.png" alt="100,000 2 dice sum" /></p>
+
+<p>This is very interesting, but what is the importance of it? The importance of the central limit theorem is that it allows us to gauge the likelihood of a sample of results, based on the properties of a normal distribution. From this we can understand the probability of divergent results.</p>
+
+<p>Let’s return to the example of rolls of fair dice. What is the probability that the sum of 2 dice is 12? There are a number of ways to go about this, but for now let’s stick the empirical approach.</p>
+
+<p>Because we know the properties of a normal distribution, we know what proportion of values lie within how many standard deviations from the mean. Therefore, we need only calculate the standard deviation and from there the z-score of a value to compute its probability, assuming our sample is a of meaningful size. Here is the equation for those of you who have forgotten it.</p>
+
+<p>$z =  \frac{x - \bar{x}}{\sigma} $</p>
+
+<p>Unsurprisingly R has the requisite methods to calculate these built in.</p>
+
+<pre><code>z = (12 - mean(test100000)) / sd(test100000)
+ z
+[1] 2.062975
+</code></pre>
+
+<p>With a Z-Score of 2.06, 12 has a rough probability of occurring 0.01876 or 1.9% of the time. Although this is far from being rigorous, we can estimate that it is roughly true thanks to the influence of the Law of Large Numbers on the sample. This rough estimate is exactly the kind of informative statistic useful for exploratory data analysis.</p>
+
+<p><strong>Expected Value</strong></p>
+
+<p>Expected value is a fairly simple concept with a potentially misleading name. It is the probability weighted average of all possible values, not the most likely return or value. In practice, thanks to the Law of Large Numbers, it can often be thought of as the long-term average of a large number of repetitions of a discrete random variable. Let’s create a concrete example. Here is the formula:</p>
+
+<p>$(Outcome \times Probability) + (Outcome \times Probability) = E(X)$</p>
+
+<p>As was proven earlier, the probability distribution of a fair 6-sided dice is a uniform <sup>1</sup>&frasl;<sub>6</sub> for each side 1 to 6. To find out the expected value, we multiply the potential outcomes by their probability and sum the results:</p>
+
+<p>(1 * <sup>1</sup>&frasl;<sub>6</sub>) + (2 * <sup>1</sup>&frasl;<sub>6</sub>) + (3 * <sup>1</sup>&frasl;<sub>6</sub>) + (4 * <sup>1</sup>&frasl;<sub>6</sub>) + (5 * <sup>1</sup>&frasl;<sub>6</sub>) + (6 * <sup>1</sup>&frasl;<sub>6</sub>) = 3.5</p>
+
+<p>Of course, we needn’t construct a simulation to figure this out. We could just as easily arrive at the same conclusion by counting the possible outcomes in the sample space. The result remains the same.</p>
+
+<p>As the number of experiments increases, the tendency for the expected value as calculated by the results to reflect the expected value as calculated on the sample space increases. The Law of Large numbers strikes again.</p>
+
+<p>This becomes more interesting, when we apply it to the mother of probability theory: gambling.</p>
+
+<p><strong>Chuck-a-luck</strong></p>
+
+<p>Chuck-a-luck (also known as Birdcage) is a popular casino dice game in which 3 fair 6-sided dice are rolled (actually they are spun in a cage – hence Birdcage). The most basic bet is one in which the player is asked to choose a number, from 1 to 6. The player wins an increasing amount for every di that returns his prediction. The odds offered on each wager are determined by the casino that hosts the game, but for the purpose of this example we will use the following, commonly applied, odds.</p>
+
+<p>To figure out the expected value, we will count the outcomes in the sample space. This is a different approach to deriving the expected value from results, but as displayed above they are equally viable. Following this, we will construct a simulation in R and compare the empirical solution against the theoretical solution. Hopefully, we will also be able to observe the effects of the Law of Large Number on simulation.</p>
+
+<p>For a single matching number, the odds are 1:1. This means that for each £1 the player stakes, on say the number 3, he will lose £1 on the eventuality that none of the dice land on the number 3  and will gain an additional £1 on top of his stake if a single dice lands on the number 3.</p>
+
+<p>If two dice land on 3 the odds are 2:1, this means for a stake of £1 the player has the potential to win a further £2. If all dice land on 3 the odds are 10:1, for a stake of £1 the player has the potential to earn £10.</p>
+
+<p>To calculate the expected return from the sample space, we need to first count the number of possible outcomes. For some problems quite advanced combinatorics is required to count all the potential outcomes. Thankfully in the case of fair dice rolls, it is simple. This is because all the outcomes a dice roll are equally likely.</p>
+
+<p>So, how do we count the number of potential outcomes? Let’s consider the problem: we have 6 choices (6 sides of a di) with 3 dice. Each outcome is equally likely, and we are sampling with replacement, meaning that a number can appear on each di separately (indeed, as a prospective gambler, that is what we hope for). In this case there are:</p>
+
+<p>$ 6^3 = 216$</p>
+
+<p>possible outcomes for the combined results of three dice.</p>
+
+<p>Now that we have counted all potential outcomes, we need to count the outcomes associated with the results. For the purpose of these bets, we have four meaningful outcomes: No matches, 1 match, 2 matches and 3 matches.</p>
+
+<p>Consider this: to play a round of Chuck-a-luck, we must first choose a number. There are 6 numbers to choose from. There are 5 potential possibilities out of all 6 sides of the di in which no matches occur. There are 3 dice. Therefore, there are:</p>
+
+<p>$\left(\frac{5}{6} \times \frac{5}{6} \times \frac{5}{6}\right) \times 3 = \frac{125}{216} $ outcomes (or 0.57870 expressed decimally).</p>
+
+<p>Now 1 match: There is 1 potential match from 6 sides. There are three dice. Only 1 dice has a match, while the other two have 5 out of 6 potential ways they cannot match. Each di has the potential to be the matching di. Therefore, there are:</p>
+
+<p>$\left( \frac{1}{6} \times \frac{5}{6} \times \frac{5}{6} \right) \times 3 = \frac{75}{216} $ (or 0.34722 expressed decimally).</p>
+
+<p>For 2 matches:</p>
+
+<p>$\left( \frac{1}{6} \times \frac{1}{6} \times \frac{5}{6} \right) \times 3 = \frac{15}{216} $ (or 0.06944 expressed decimally).</p>
+
+<p>For 3 matches:</p>
+
+<p>$\left( \frac{1}{6} \times \frac{1}{6} \times \frac{1}{6} \right) = \frac{1}{216} $ (or 0.00462 expressed decimally).</p>
+
+<p>Excellent. So, what is the expected return given these odds:</p>
+
+<p>$\left(10 \times \frac{1}{216}\right) + \left(2 \times \frac{15}{216}\right) + \left(1 \times \frac{75}{216}\right) - \left(1 \times \frac{125}{216}\right) = -0.04692$</p>
+
+<p>What does this mean? There can be some confusion surrounding the name, expected value or expected return. It could imply the most likely return or value. This is incorrect. Instead, it means that for every £1 wagered, we can expect a return of roughly -4p. Of course, over a single game this is not possible. As stated before, expected return is the probability weighted average of all possible values. So we return to our friend the Law of Large Numbers.</p>
+
+<p>Herein lies the profitability of a casino. Our expected return of -0.04692% can be thought of as their house advantage of 0.04692%. Although an individual game may result in a loss for the casino, as long as enough games of Chuck-a-luck are played, they are guaranteed a return of 0.04692%. That is, if enough games are played using the following assumptions (If you are interested in those occasions when casinos have conducted games under false assumptions, to their loss, I suggest you read up on Joseph Jagger). It is here that the Law of Large Numbers and the perennial popularity of gambling converge profitably for casinos.</p>
+
+<p><strong>The Empirical Approach</strong></p>
+
+<p>In the spirit of proving the efficacy of Monte Carlo simulations, let&rsquo;s create one for Chuck-a-Luck with R.</p>
+
+<p>With a simple game like Chuck-a-luck, it doesn’t take very long to create a simulation and from there to conduct multiple trials against which you can compare the findings of the theoretical approach.</p>
+
+<pre><code>chuck.a.luck.wager.game.limit.record &lt;- function(bankroll, games) {
+changes = vector()
+repeat{
+results &lt;- 0
+bankroll &lt;- bankroll - 10
+pred = sample(1:6, 1)
+rolls = n.di.roll(3,6)
+if (rolls[1] == pred) {results &lt;- results +1}
+if (rolls[2] == pred) {results &lt;- results +1}
+if (rolls[3] == pred) {results &lt;- results +1}
+minus_10 = -10
+plus_10 = 10
+plus_20 = 20
+plus_100 = 100
+if (results == 1) {bankroll &lt;- bankroll + 20;
+changes &lt;- append(changes, plus_10)}
+else if (results == 2) {bankroll &lt;- bankroll +30;
+changes &lt;- append(changes, plus_20)}
+else if (results == 3) {bankroll &lt;- bankroll + 110;
+changes &lt;- append(changes, plus_100)}
+else if (results == 0) {changes &lt;- append(changes, minus_10)}
+if (length(changes) == games)
+{
+break
+}
+}
+return(changes)
+}
+</code></pre>
+
+<p>With this in mind, lets group the results by their loss or return and compute their relative frequency. This empirical result will stand in for the implied probability as calculated in the sample space.</p>
+
+<pre><code>chuck.100000.games &lt;- chuck.a.luck.wager.game.limit.record(100,100000)
+chuck.100000.games &lt;- table(chuck.100000.games) / length(chuck.100000.games)
+chuck.100000.games
+chuck.100000.games
+    -10      10      20     100
+0.57744 0.34872 0.06952 0.00432
+((-10) * 0.57744) + (10 * 0.34872) + (20 * 0.06952) + (100 * 0.00432)
+[1] -0.4648
+</code></pre>
+
+<p>We can see that as the number of trials increase, the expected value as calculated empirically converges on the expected value as calculated on the sample space. The Law of Large Numbers strikes again.</p>
+
+<p><strong>Conclusion</strong></p>
+
+<p>There we have it. We have surveyed the Law of Large Numbers and its interaction with a number of other probabilistic theories and made use of some of the functionality provided by R to prove them. This has mainly been concerned with gambling, which has historically provided the motivation for the discovery of many of probability’s theories, although the application of these theories is much more wide ranging. Anyway, I hope you have enjoyed this entry: until next time, goodbye!</p>
+
+            </article>
+          </div>
+          
+      <div class='entry-meta-bottom'>
+        
+
+  <div class="entry-categories"><p><span>Categories</span>
+    
+    <a href="/categories/r" title="View all posts in R">R</a>
+    <a href="/categories/monte-carlo-simulations" title="View all posts in Monte Carlo Simulations">Monte Carlo Simulations</a>
+  </p>
+</div>
+
+
+
+<div class="entry-tags"><p><span>Tags</span>
+  
+  <a href="/tags/r" title="View all posts tagged R">R</a>
+  
+  <a href="/tags/monte-carlo-simulations" title="View all posts tagged Monte Carlo Simulations">Monte Carlo Simulations</a>
+  
+
+</p></div>	</div>
+
+	
+</div>
+</div>
+
+<section id="comments" class="comments">
+  
+
+  
+
+
+
+
+</section>
+</div>
+
+ 
+
+
+
+    </div>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
+	<h1>
+    
+    <a href=""> Dom Atkinson </a>
+    
+	</h1>
+
+			
+
+		<div id="menu-footer" class="menu-container menu-footer" role="navigation">
+		<div class="menu">
+
+      <ul id="menu-footer-items" class="menu-footer-items">
+        
+</ul>
+
+</div>	</div>
+
+<ul class="social-media-icons">
+
+        
+
+        
+
+
+        
+
+        
+
+        
+
+        
+
+        
+
+
+        
+
+
+        
+
+        
+
+				</ul>	<div class="design-credit">
+		
+		<p>
+			Nederburg Hugo Theme by <a target="_blank" href="https://appernetic.io">Appernetic</a>.
+		</p>
+		<p>
+			A port of Tracks by Compete Themes.
+		</p>
+		
+	</div>
+</footer>
+
+  </div>
+  <script src="https://datk12.github.io/js/jquery.min.js"></script>
+<script src="https://datk12.github.io/js/jquerymigrate.js"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1572963826"></script>
+
+</body>
+</html>
