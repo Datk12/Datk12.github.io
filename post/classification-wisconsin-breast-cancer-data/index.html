@@ -45,9 +45,9 @@
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-<link href="https://datk12.github.io/css/style.css?v=1559029006" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
+<link href="https://datk12.github.io/css/style.css?v=1572962961" rel="stylesheet" id="theme-stylesheet" type='text/css' media='all'>
 
-<link href="https://datk12.github.io/css/custom.css?v=1559029006" rel="stylesheet" type='text/css' media='all'>
+<link href="https://datk12.github.io/css/custom.css?v=1572962961" rel="stylesheet" type='text/css' media='all'>
 <link rel="shortcut icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
 <link rel="icon" href="https://datk12.github.io/img/favicon.ico" type="image/x-icon">
 
@@ -142,6 +142,35 @@
 
       <div class="container">
         <div id="title-info" class="title-info">
+  <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+  });
+  MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+
+  MathJax.Hub.Config({
+  
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+  });
+</script>
+
   <div id='site-title' class='site-title'>
     
     <a href="/"> Dom Atkinson </a>
@@ -277,7 +306,7 @@
 <p><img src="/img/wis/wis_log_roc.png" alt="wis log roc" />
 <img src="/img/wis/wis_log_roc_score.png" alt="wis log roc score" /></p>
 
-<p>Next, we do the same for a Random Forrest Regressor. This is a more flexible model, so it is perhaps understandable that it has a higher accuracy for the training data.</p>
+<p>Next, we do the same for a Random Forrest Classifier. This is a more flexible model, so it is perhaps understandable that it has a higher accuracy for the training data.</p>
 
 <p><img src="/img/wis/wis_rf_fit.png" alt="wis rf fit" /></p>
 
@@ -294,7 +323,7 @@
 
 <p>It is conceivable that in a medical setting, it would be in the interest of doctors to idetnfy the features that had the highest predictive power. If a test could be conducted at a lower of the price with only a slightly worse accuracy, it may be preferable for a hospital to use. Of course, in the real world there would be a whole host of ethical questions to consider, but the principle could be applied to any number of problems. One would hope that more data was available as a precaution against overfitting on the training data. For our purposes, though, it is interest enough to play with some of the tools.</p>
 
-<p>Helpfully, the SKLearn Random Forest Regressor class has a feature importance method.</p>
+<p>Helpfully, the SKLearn Random Forest Classifier class has a feature importance method.</p>
 
 <p><img src="/img/wis/wis_feature_fit.png" alt="wis feature fit" /></p>
 
@@ -419,7 +448,7 @@
   </div>
   <script src="https://datk12.github.io/js/jquery.min.js"></script>
 <script src="https://datk12.github.io/js/jquerymigrate.js"></script>
-<script src="https://datk12.github.io/js/production.min.js?v=1559029006"></script>
+<script src="https://datk12.github.io/js/production.min.js?v=1572962961"></script>
 
 </body>
 </html>
